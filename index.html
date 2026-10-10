@@ -167,6 +167,12 @@ html:not(.js) .reveal{ opacity:1; transform:none; }
   .wave-bg{ top:-40%; bottom:-40%; background-size:auto 70%; background-position:30% center; }
   .what .wave-bg{ opacity:.26; }
 }
+/* Suitable crops: the white paper texture, 81% transparent, same parallax */
+.crops .wave-bg{
+  background-image:url("assets/img/paper-compare.webp"); background-size:cover;
+  mix-blend-mode:normal; opacity:.19;
+}
+@media (max-width:640px){ .crops .wave-bg{ background-size:cover; background-position:center; opacity:.19; } }
 /* ============================================================
    00 · LANGUAGE PICKER
    ============================================================ */
@@ -1094,7 +1100,8 @@ html[data-lang="ta"] .hero-chip-once{ max-width:270px; }
 <!-- ============================================================
      07 · CROPS
      ============================================================ -->
-<section class="section crops" id="crops">
+<section class="section has-wave crops" id="crops">
+  <div class="wave-bg" data-parallax="0.5" aria-hidden="true"></div>
   <div class="wrap">
     <div class="section-head center reveal">
       <p class="eyebrow"><span class="en">Crops</span><span class="hi">फ़सलें</span><span class="or">ଫସଲ</span><span class="ta">பயிர்கள்</span></p>
