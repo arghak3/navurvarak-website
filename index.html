@@ -148,6 +148,26 @@ html:not(.js) .reveal{ opacity:1; transform:none; }
   html{ scroll-behavior:auto; }
 }
 /* ============================================================
+   WAVE BACKGROUND WITH PARALLAX
+   Used behind section 03 and the FAQs. The layer is taller than
+   its section so it can travel while the page scrolls. Multiply
+   drops the image's white, so the wave sits on any tint.
+   ============================================================ */
+.has-wave{ overflow:hidden; isolation:isolate; }
+.has-wave > .wrap{ position:relative; z-index:1; }
+.wave-bg{
+  position:absolute; left:-5%; right:-5%; top:-60%; bottom:-60%; z-index:0; pointer-events:none;
+  background:url("assets/img/wave-bg.webp") center / 100% auto no-repeat;
+  mix-blend-mode:multiply; opacity:.42; will-change:transform;
+}
+.what .wave-bg{ opacity:.32; }
+/* the FAQ wave runs the other way, so the two sections do not look copied */
+.faqs .wave-bg{ transform:scaleX(-1); opacity:.5; }
+@media (max-width:640px){
+  .wave-bg{ top:-40%; bottom:-40%; background-size:auto 70%; background-position:30% center; }
+  .what .wave-bg{ opacity:.26; }
+}
+/* ============================================================
    00 · LANGUAGE PICKER
    ============================================================ */
 .lang-picker{
@@ -870,7 +890,8 @@ html[data-lang="ta"] .hero-chip-once{ max-width:270px; }
 <!-- ============================================================
      03 · WHAT IS NAVURVARAK
      ============================================================ -->
-<section class="section what" id="what">
+<section class="section has-wave what" id="what">
+  <div class="wave-bg" data-parallax="0.5" aria-hidden="true"></div>
   <div class="wrap what-grid">
     <figure class="what-media reveal">
       <img src="assets/img/farmer-happy.jpg" width="900" height="1100" loading="lazy" alt="A smiling woman farmer shakes water from a bundle of rice seedlings in a green field.">
@@ -1182,7 +1203,8 @@ html[data-lang="ta"] .hero-chip-once{ max-width:270px; }
      10 · QUESTIONS FARMERS ASK
      Answers drawn only from the leaflet, sitemap and standee.
      ============================================================ -->
-<section class="section section-tint faqs" id="faqs">
+<section class="section has-wave section-tint faqs" id="faqs">
+  <div class="wave-bg" data-parallax="0.5" aria-hidden="true"></div>
   <div class="wrap faqs-wrap">
     <div class="section-head reveal">
       <p class="eyebrow"><span class="en">Questions</span><span class="hi">सवाल-जवाब</span><span class="or">ପ୍ରଶ୍ନୋତ୍ତର</span><span class="ta">கேள்வி-பதில்</span></p>
@@ -1508,6 +1530,35 @@ html[data-lang="ta"] .hero-chip-once{ max-width:270px; }
     reveals.forEach(function(el){ el.classList.add("in"); });
   }
 
+
+  /* ---- Parallax for the wave backgrounds --------------------
+     Each layer moves at data-parallax times the scroll, against
+     the page, while its section is on screen. Off for people who
+     ask for reduced motion.                                     */
+  var layers = Array.prototype.slice.call(document.querySelectorAll("[data-parallax]"));
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (layers.length && !still){
+    var ticking = false;
+    function paint(){
+      ticking = false;
+      var vh = window.innerHeight;
+      layers.forEach(function(el){
+        var box = el.parentElement.getBoundingClientRect();
+        if (box.bottom < -200 || box.top > vh + 200) return;
+        // Background drifts slower than the page (depth), clamped to the
+        // layer's overhang so its edges never show.
+        var room = el.offsetHeight > box.height ? (el.offsetHeight - box.height) / 2 - 8 : 0;
+        var shift = -(box.top + box.height / 2 - vh / 2) * parseFloat(el.dataset.parallax);
+        shift = Math.max(-room, Math.min(room, shift));
+        var flip = el.parentElement.classList.contains("faqs") ? " scaleX(-1)" : "";
+        el.style.transform = "translate3d(0," + shift.toFixed(1) + "px,0)" + flip;
+      });
+    }
+    function queue(){ if (!ticking){ ticking = true; requestAnimationFrame(paint); } }
+    window.addEventListener("scroll", queue, { passive:true });
+    window.addEventListener("resize", queue);
+    paint();
+  }
 
   /* ---- Grow the yield bars when the chart comes into view --- */
   var bars = document.querySelector(".bars");

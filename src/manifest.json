@@ -2,6 +2,7 @@
   "styles": [
     "00-tokens-and-base.css",
     "lib-section-furniture.css",
+    "lib-wave-parallax.css",
     "s00-language-picker.css",
     "s00a-announcement-strip.css",
     "s00b-header.css",
@@ -46,6 +47,7 @@
     "s00-mobile-menu.js",
     "s00-nav-active.js",
     "lib-reveal-on-scroll.js",
+    "lib-parallax.js",
     "s08-bars.js",
     "s11-register-form.js"
   ]

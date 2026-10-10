@@ -1,0 +1,20 @@
+/* ============================================================
+   WAVE BACKGROUND WITH PARALLAX
+   Used behind section 03 and the FAQs. The layer is taller than
+   its section so it can travel while the page scrolls. Multiply
+   drops the image's white, so the wave sits on any tint.
+   ============================================================ */
+.has-wave{ overflow:hidden; isolation:isolate; }
+.has-wave > .wrap{ position:relative; z-index:1; }
+.wave-bg{
+  position:absolute; left:-5%; right:-5%; top:-60%; bottom:-60%; z-index:0; pointer-events:none;
+  background:url("assets/img/wave-bg.webp") center / 100% auto no-repeat;
+  mix-blend-mode:multiply; opacity:.42; will-change:transform;
+}
+.what .wave-bg{ opacity:.32; }
+/* the FAQ wave runs the other way, so the two sections do not look copied */
+.faqs .wave-bg{ transform:scaleX(-1); opacity:.5; }
+@media (max-width:640px){
+  .wave-bg{ top:-40%; bottom:-40%; background-size:auto 70%; background-position:30% center; }
+  .what .wave-bg{ opacity:.26; }
+}
