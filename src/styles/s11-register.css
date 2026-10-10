@@ -24,11 +24,31 @@
 .chips{ display:flex; flex-wrap:wrap; gap:8px; }
 .chip{ position:relative; }
 .chip input{ position:absolute; opacity:0; inset:0; cursor:pointer; }
-.chip span{
-  display:inline-flex; align-items:center; min-height:46px; padding:0 18px; border-radius:999px;
-  background:#fff; border:1.5px solid #C9D6CB; font-weight:500; cursor:pointer; transition:all .15s;
+.chip > span{
+  display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:0 18px 0 14px; border-radius:14px;
+  background:#fff; border:1.5px solid #C9D6CB; color:var(--ink); font-weight:500; cursor:pointer;
+  transition:border-color .15s, background .15s, box-shadow .15s;
 }
-.chip input:checked + span{ background:var(--green); border-color:var(--green); color:#fff; }
+/* The marker says what kind of choice it is: a box for "pick any",
+   a circle for "pick one". */
+.chip > span::before{
+  content:""; flex:none; width:20px; height:20px; border-radius:6px; border:2px solid #A6B5A9; background:#fff;
+  background-position:center; background-repeat:no-repeat; transition:all .15s;
+}
+.chip input[type="radio"] + span::before{ border-radius:50%; }
+.chip:hover > span{ border-color:var(--green); }
+/* Selected: light green, a green edge, dark text, and a tick or a dot */
+.chip input:checked + span{
+  background:var(--green-tint); border-color:var(--green); color:var(--green-ink); font-weight:600;
+  box-shadow:inset 0 0 0 1px var(--green);
+}
+.chip input[type="checkbox"]:checked + span::before{
+  background-color:var(--green); border-color:var(--green); background-size:14px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.chip input[type="radio"]:checked + span::before{
+  border-color:var(--green); background:radial-gradient(circle, var(--green) 0 5px, #fff 5.5px);
+}
 .chip input:focus-visible + span{ outline:3px solid var(--blue); outline-offset:2px; }
 .consent{ display:flex; gap:12px; align-items:flex-start; margin-top:20px; font-size:.95rem; color:#3B4D40; cursor:pointer; }
 .consent input{ width:24px; height:24px; accent-color:var(--green); flex:none; margin-top:2px; }
