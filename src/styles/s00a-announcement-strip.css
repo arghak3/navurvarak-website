@@ -1,0 +1,11 @@
+/* ============================================================
+   00a · ANNOUNCEMENT STRIP
+   ============================================================ */
+.strip{ background:var(--green-ink); color:#E6F2E8; font-size:.95rem; }
+.strip-inner{ display:flex; align-items:center; gap:12px; min-height:44px; padding:6px 0; }
+.strip p{ flex:1; line-height:1.4; }
+.strip a{ color:#fff; font-weight:600; text-underline-offset:3px; }
+.strip-dot{ width:8px; height:8px; border-radius:50%; background:#7BD88F; flex:none; box-shadow:0 0 0 0 rgba(123,216,143,.6); animation:pulse 2s infinite; }
+@keyframes pulse{ 70%{ box-shadow:0 0 0 10px rgba(123,216,143,0); } 100%{ box-shadow:0 0 0 0 rgba(123,216,143,0); } }
+.strip-phone{ display:inline-flex; align-items:center; gap:6px; text-decoration:none; font-weight:700; white-space:nowrap; }
+.strip-phone svg{ width:16px; height:16px; }

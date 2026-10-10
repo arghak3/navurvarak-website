@@ -1,0 +1,44 @@
+/* ============================================================
+   01 · HERO
+   ============================================================ */
+.hero{
+  position:relative; overflow:hidden; padding:clamp(40px, 6vw, 80px) 0 clamp(90px, 10vw, 130px);
+  background:
+    radial-gradient(900px 500px at 85% 10%, rgba(40,122,195,.10), transparent 60%),
+    radial-gradient(700px 500px at 0% 100%, rgba(49,141,68,.14), transparent 60%),
+    linear-gradient(180deg, #fff 0%, var(--green-mist) 100%);
+}
+.hero-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(32px, 5vw, 72px); align-items:center; }
+.hero-title{ font-size:clamp(2.6rem, 6.2vw, 4.6rem); line-height:1.02; font-weight:800; color:var(--green-ink); }
+html:not([data-lang="en"]) .hero-title{ line-height:1.2; font-size:clamp(2.3rem, 5.4vw, 4rem); }
+.hero-title em{ font-style:normal; color:var(--green); position:relative; white-space:nowrap; }
+.hero-title em::after{
+  content:""; position:absolute; left:0; right:0; bottom:.06em; height:.14em; border-radius:99px;
+  background:linear-gradient(90deg, var(--gold), rgba(226,167,46,.25)); z-index:-1;
+}
+.hero-sub{ margin-top:22px; font-size:clamp(1.1rem, 1.6vw, 1.28rem); color:#33463A; max-width:34em; }
+.hero-ctas{ display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+.hero-call{ margin-top:14px; color:var(--muted); font-size:1rem; }
+.hero-call a{ font-weight:700; font-size:1.15rem; color:var(--green-deep); text-decoration:none; margin-left:4px; }
+.hero-trust{
+  display:inline-flex; align-items:center; gap:10px; margin-top:26px; padding:10px 16px 10px 12px;
+  background:#fff; border:1px solid var(--line); border-radius:999px; font-weight:600; font-size:.98rem; color:var(--green-deep);
+}
+.hero-trust svg{ width:24px; height:24px; color:var(--green); flex:none; }
+
+.hero-media{ position:relative; margin:0; }
+.hero-media img{
+  width:100%; height:auto; aspect-ratio:1000/1180; object-fit:cover;
+  border-radius:200px 200px 32px 32px; box-shadow:0 40px 80px -30px rgba(18,58,28,.45);
+}
+.hero-chip{
+  position:absolute; background:#fff; border-radius:20px; box-shadow:var(--shadow);
+  padding:14px 18px; display:grid; line-height:1.2;
+}
+.hero-chip-n{ left:-28px; bottom:18%; text-align:left; }
+.chip-big{ font-size:2.6rem; font-weight:800; color:var(--green); line-height:1; }
+.chip-label{ font-weight:600; color:var(--green-ink); }
+.chip-vs{ font-size:.88rem; color:var(--muted); margin-top:4px; }
+.hero-chip-once{ right:-18px; top:14%; grid-auto-flow:column; align-items:center; gap:12px; max-width:240px; font-weight:600; color:var(--green-ink); font-size:.98rem; }
+.chip-icon{ width:46px; height:46px; border-radius:14px; display:grid; place-items:center; background:var(--blue); color:#fff; font-family:"Baloo 2"; font-weight:800; font-size:1.3rem; }
+html[data-lang="ta"] .hero-chip-once{ max-width:270px; }

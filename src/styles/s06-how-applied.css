@@ -1,0 +1,36 @@
+/* ============================================================
+   06 · HOW IT'S APPLIED
+   ============================================================ */
+.how-top{ display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:end; }
+.how-machine{ margin:0 0 clamp(24px, 4vw, 40px); position:relative; }
+.how-machine::before{
+  content:""; position:absolute; inset:18% 4% 0; border-radius:50%; z-index:0;
+  background:radial-gradient(closest-side, rgba(49,141,68,.18), transparent);
+}
+.how-machine img{ position:relative; width:100%; max-width:480px; margin-left:auto; height:auto; }
+.how-machine figcaption{ text-align:right; font-size:.9rem; color:var(--muted); margin-top:6px; }
+
+.steps{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; counter-reset:s; }
+.step{ position:relative; background:#fff; border-radius:var(--radius); padding:26px 22px; border:1px solid var(--line); }
+.step:not(:last-child)::after{
+  content:""; position:absolute; top:50px; right:-14px; width:10px; height:10px; z-index:1;
+  border-top:3px solid var(--green); border-right:3px solid var(--green); transform:rotate(45deg);
+}
+.step-n{
+  position:absolute; top:18px; right:20px; font-size:2.6rem; font-weight:800; line-height:1; color:var(--green-tint);
+}
+.step-icon{ width:52px; height:52px; color:var(--green); }
+.step h3{ margin-top:14px; font-size:1.2rem; }
+.step p{ margin-top:6px; color:var(--muted); font-size:1rem; }
+
+.practices{
+  margin-top:28px; padding:28px clamp(22px, 4vw, 40px); border-radius:var(--radius);
+  background:var(--green-ink); color:#E6F2E8;
+}
+.practices h3{ color:#fff; font-size:1.4rem; }
+.practices ul{ list-style:none; margin:16px 0 0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:12px 36px; }
+.practices li{ position:relative; padding-left:34px; }
+.practices li::before{
+  content:""; position:absolute; left:0; top:.3em; width:22px; height:22px; border-radius:50%;
+  background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat;
+}

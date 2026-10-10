@@ -1,0 +1,44 @@
+/* ============================================================
+   00b · HEADER
+   Two rows on desktop: the two logos, then the menu.
+   ============================================================ */
+.site-header{
+  position:sticky; top:0; z-index:50; background:#fff;
+  backdrop-filter:saturate(1.4) blur(10px); -webkit-backdrop-filter:saturate(1.4) blur(10px);
+  border-bottom:1px solid var(--line); transition:box-shadow .25s;
+}
+.site-header.scrolled{ box-shadow:0 8px 24px -16px rgba(18,58,28,.35); }
+.header-top{ display:flex; align-items:center; justify-content:space-between; gap:16px; height:var(--header-h); }
+.brand img{ height:60px; width:auto; }
+.header-right{ display:flex; align-items:center; gap:14px; }
+.acme-logo img{ height:50px; width:auto; }
+.lang-btn{
+  display:inline-flex; align-items:center; gap:8px; height:42px; padding:0 16px; border-radius:999px;
+  background:var(--green-mist); border:1.5px solid var(--line); cursor:pointer; font-weight:600; font-size:.95rem; color:var(--green-ink);
+}
+.lang-btn:hover{ border-color:var(--green); }
+.lang-btn svg{ width:20px; height:20px; color:var(--green); }
+
+.header-nav{ border-top:1px solid var(--line); }
+.nav{ display:flex; align-items:center; gap:6px; min-height:58px; }
+.nav a:not(.btn){
+  position:relative; padding:10px 14px; border-radius:10px; text-decoration:none;
+  color:var(--ink); font-weight:500; font-size:1rem; white-space:nowrap;
+}
+.nav a:not(.btn):hover{ background:var(--green-mist); color:var(--green-deep); }
+.nav a.active{ color:var(--green-deep); }
+.nav a.active::after{ content:""; position:absolute; left:14px; right:14px; bottom:4px; height:3px; border-radius:3px; background:var(--green); }
+.nav-group{ display:inline-flex; align-items:center; gap:6px; margin-left:auto; color:var(--blue) !important; font-weight:600 !important; }
+.nav-group svg{ width:16px; height:16px; }
+.nav-cta{ min-height:44px; padding:.5em 1.2em; font-size:.98rem; }
+
+.menu-btn{ display:none; width:46px; height:46px; border-radius:12px; border:1.5px solid var(--line); background:#fff; cursor:pointer; padding:0 11px; }
+.menu-btn span{ display:block; height:2.5px; border-radius:2px; background:var(--green-ink); margin:5px 0; transition:transform .25s, opacity .25s; }
+body.menu-open .menu-btn span:nth-child(1){ transform:translateY(7.5px) rotate(45deg); }
+body.menu-open .menu-btn span:nth-child(2){ opacity:0; }
+body.menu-open .menu-btn span:nth-child(3){ transform:translateY(-7.5px) rotate(-45deg); }
+.nav-cta{ white-space:nowrap; }
+html:is([data-lang="ta"],[data-lang="or"]) .nav a:not(.btn){ padding-inline:10px; font-size:.95rem; }
+html[data-lang="ta"] .nav-cta{ font-size:.92rem; padding-inline:1em; }
+/* Tamil runs long: on small laptops the register button stays in the hero, not the menu */
+@media (min-width:961px) and (max-width:1150px){ html[data-lang="ta"] .nav-cta{ display:none; } }

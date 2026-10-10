@@ -1,0 +1,110 @@
+/* ============================================================
+   ZZ · RESPONSIVE
+   Most farmers will open this on a phone, from a WhatsApp link.
+   ============================================================ */
+@media (max-width:1100px){
+  .nav a:not(.btn){ padding:10px 10px; font-size:.95rem; }
+  .footer-grid{ grid-template-columns:1fr 1fr 1fr; }
+  .footer-about{ grid-column:1 / -1; }
+}
+
+@media (max-width:960px){
+  :root{ --header-h:68px; }
+  .menu-btn{ display:block; }
+  .header-nav{
+    position:fixed; left:0; right:0; top:calc(var(--header-h) + 1px); bottom:0; z-index:60;
+    background:#fff; border-top:1px solid var(--line); overflow-y:auto;
+    transform:translateY(-8px); opacity:0; visibility:hidden; transition:all .25s ease;
+  }
+  body.menu-open .header-nav{ transform:none; opacity:1; visibility:visible; }
+  body.menu-open{ overflow:hidden; }
+  .nav{ flex-direction:column; align-items:stretch; gap:2px; padding:16px 0 40px; }
+  .nav a:not(.btn){ font-size:1.2rem; padding:16px 12px; border-bottom:1px solid var(--line); border-radius:0; }
+  .nav a.active::after{ display:none; }
+  .nav-group{ margin-left:0; }
+  .nav-cta{ margin-top:18px; min-height:56px; font-size:1.1rem; }
+
+  .hero-grid{ grid-template-columns:1fr; }
+  .hero-media{ max-width:520px; margin-inline:auto; width:100%; }
+  .facts-grid{ grid-template-columns:1fr 1fr; }
+  .fact:nth-child(2){ border-right:0; }
+  .fact:nth-child(-n+2){ border-bottom:1px solid var(--line); }
+  .what-grid, .results-grid, .safety-grid, .faqs-wrap, .register-grid, .how-top{ grid-template-columns:1fr; }
+  .what-media{ max-width:460px; }
+  .benefit-grid{ grid-template-columns:1fr 1fr; }
+  .steps{ grid-template-columns:1fr 1fr; }
+  .step:nth-child(2)::after{ display:none; }
+  .crop-grid{ grid-template-columns:1fr 1fr; }
+  .register-side{ position:static; display:none; }
+  .how-machine img{ margin-inline:auto; }
+  .how-machine figcaption{ text-align:center; }
+}
+
+@media (max-width:640px){
+  body{ font-size:17px; }
+  .wrap{ width:calc(100% - 32px); }
+  .strip{ font-size:.88rem; }
+  .strip-phone{ display:none; }
+  .brand img{ height:40px; }
+  .acme-logo img{ height:38px; }
+  .header-right{ gap:8px; }
+  .lang-btn{ height:40px; padding:0 12px; font-size:.9rem; }
+  .lang-btn svg{ display:none; }
+  .menu-btn{ width:42px; height:42px; padding:0 10px; }
+
+  .hero{ padding-top:28px; }
+  .hero-ctas .btn{ width:100%; }
+  .hero-trust{ border-radius:16px; }
+  .hero-media img{ border-radius:160px 160px 28px 28px; }
+  .hero-chip-n{ left:-6px; }
+  .hero-chip-once{ right:-6px; max-width:200px; font-size:.9rem; }
+  .facts{ margin-top:-48px; }
+  .fact{ padding:20px 16px; }
+
+  .benefit-grid{ grid-template-columns:1fr; }
+  .benefit{ display:grid; grid-template-columns:auto 1fr; gap:4px 16px; padding:20px; }
+  .benefit .icon-badge{ grid-row:span 2; width:52px; height:52px; }
+  .benefit h3{ margin-top:0; font-size:1.2rem; }
+  .benefit p{ margin-top:0; }
+
+  .cmp-row{ grid-template-columns:1fr 1fr 1fr; }
+  .cmp-row > span{ padding:14px 10px; font-size:.95rem; }
+  .cmp-head > span{ font-size:1rem; }
+  .cmp-head .cmp-nu img{ display:none; }
+  .cmp .big{ font-size:1.3rem; }
+
+  .steps{ grid-template-columns:1fr; }
+  .step{ display:grid; grid-template-columns:auto 1fr; gap:2px 16px; }
+  .step-icon{ grid-row:span 2; }
+  .step h3{ margin-top:0; }
+  .step::after{ display:none; }
+  .practices ul{ grid-template-columns:1fr; }
+
+  .bar{ grid-template-columns:96px 1fr 44px; gap:8px; }
+  .gear-grid li{ font-size:.88rem; }
+  .form-grid{ grid-template-columns:1fr; }
+  .helpline-ctas .btn{ flex:1; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .footer-col:last-child{ grid-column:1 / -1; }
+
+  /* Call, WhatsApp, Register: always one tap away */
+  .sticky-bar{
+    display:grid; grid-template-columns:1fr 1fr 1.2fr; position:fixed; left:0; right:0; bottom:0; z-index:40;
+    background:#fff; border-top:1px solid var(--line); box-shadow:0 -8px 24px -12px rgba(0,0,0,.2);
+    padding:8px 10px calc(8px + env(safe-area-inset-bottom)); gap:8px;
+  }
+  .sticky-bar a{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; min-height:54px;
+    border-radius:14px; text-decoration:none; font-weight:600; font-size:.85rem; color:var(--green-deep); background:var(--green-mist);
+  }
+  .sticky-bar svg{ width:22px; height:22px; }
+  .sticky-bar .sb-wa{ background:#1FA855; color:#fff; }
+  .sticky-bar .sb-reg{ background:var(--green); color:#fff; }
+  body{ padding-bottom:76px; }
+}
+
+@media (max-width:640px){
+  .hero-title em{ white-space:normal; }
+  html[data-lang="ta"] .hero-title{ font-size:2rem; }
+  html[data-lang="ta"] .section-title{ font-size:1.65rem; }
+}

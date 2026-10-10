@@ -1,0 +1,5 @@
+.DS_Store
+__pycache__/
+# internal ACME documents and full-size originals: never published
+source-materials/
+assets/photos/

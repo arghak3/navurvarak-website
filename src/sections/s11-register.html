@@ -1,0 +1,93 @@
+
+<!-- ============================================================
+     11 · REGISTER FOR THE TRIAL
+     Fields follow the sitemap's farmer form, cut to what the
+     team needs for a first call. NOT CONNECTED YET: until the
+     sheet is mapped, a submitted form hands the details to
+     WhatsApp (see s11-register-form.js).
+     ============================================================ -->
+<section class="section register" id="register">
+  <div class="wrap register-grid">
+    <aside class="register-side reveal">
+      <img src="assets/img/farmer-wave.jpg" width="1000" height="1100" loading="lazy" alt="A smiling farmer waves from a field of yellow mustard flowers.">
+      <div class="register-help">
+        <p><span class="en">Prefer to talk?</span><span class="hi">बात करना चाहते हैं?</span><span class="or">କଥା ହେବାକୁ ଚାହାଁନ୍ତି କି?</span><span class="ta">பேச விரும்புகிறீர்களா?</span></p>
+        <a class="num" href="tel:+919732297322">97322-97322</a>
+        <p class="register-help-sub"><span class="en">WhatsApp or call</span><span class="hi">व्हाट्सएप्प या कॉल</span><span class="or">ହ୍ୱାଟସଆପ୍ କିମ୍ବା କଲ୍</span><span class="ta">வாட்ஸ்அப் அல்லது அழைப்பு</span></p>
+      </div>
+    </aside>
+
+    <div class="register-main">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="en">Field trial, Rabi 2026-27</span><span class="hi">फ़ील्ड ट्रायल, रबी 2026-27</span><span class="or">କ୍ଷେତ୍ର ପରୀକ୍ଷଣ, ରବି 2026-27</span><span class="ta">வயல் சோதனை, ராபி 2026-27</span></p>
+        <h2 class="section-title"><span class="en">Register your farm for the NavUrvarak trial</span><span class="hi">नवउर्वरक ट्रायल के लिए अपना खेत रजिस्टर करें</span><span class="or">ନବଉର୍ବରକ ପରୀକ୍ଷଣ ପାଇଁ ଆପଣଙ୍କ ଜମି ପଞ୍ଜୀକରଣ କରନ୍ତୁ</span><span class="ta">நவ்உர்வரக் சோதனைக்கு உங்கள் நிலத்தைப் பதிவு செய்யுங்கள்</span></h2>
+        <p class="section-lead"><span class="en">It takes less than 2 minutes.</span><span class="hi">2 मिनट से भी कम समय लगेगा।</span><span class="or">2 ମିନିଟରୁ କମ୍ ସମୟ ଲାଗିବ।</span><span class="ta">2 நிமிடங்களுக்குள் முடிந்துவிடும்.</span></p>
+      </div>
+
+      <form class="reg-form reveal" id="regForm" novalidate>
+        <div class="form-grid">
+          <label class="field">
+            <span class="field-label"><span class="en">Your name</span><span class="hi">आपका नाम</span><span class="or">ଆପଣଙ୍କ ନାମ</span><span class="ta">உங்கள் பெயர்</span> <i aria-hidden="true">*</i></span>
+            <input type="text" name="name" required autocomplete="name">
+          </label>
+          <label class="field">
+            <span class="field-label"><span class="en">Mobile number</span><span class="hi">मोबाइल नंबर</span><span class="or">ମୋବାଇଲ୍ ନମ୍ବର</span><span class="ta">கைபேசி எண்</span> <i aria-hidden="true">*</i></span>
+            <input type="tel" name="mobile" required inputmode="numeric" autocomplete="tel-national" maxlength="10" pattern="[6-9][0-9]{9}">
+          </label>
+          <label class="field">
+            <span class="field-label"><span class="en">Village</span><span class="hi">गाँव</span><span class="or">ଗାଁ</span><span class="ta">கிராமம்</span></span>
+            <input type="text" name="village">
+          </label>
+          <label class="field">
+            <span class="field-label"><span class="en">District</span><span class="hi">ज़िला</span><span class="or">ଜିଲ୍ଲା</span><span class="ta">மாவட்டம்</span> <i aria-hidden="true">*</i></span>
+            <input type="text" name="district" required>
+          </label>
+          <label class="field">
+            <span class="field-label"><span class="en">State</span><span class="hi">राज्य</span><span class="or">ରାଜ୍ୟ</span><span class="ta">மாநிலம்</span> <i aria-hidden="true">*</i></span>
+            <input type="text" name="state" required>
+          </label>
+          <label class="field">
+            <span class="field-label"><span class="en">Land (acres)</span><span class="hi">ज़मीन (एकड़)</span><span class="or">ଜମି (ଏକର)</span><span class="ta">நிலம் (ஏக்கர்)</span></span>
+            <input type="number" name="acres" inputmode="decimal" min="0" step="0.1">
+          </label>
+          <fieldset class="field wide">
+            <legend class="field-label"><span class="en">Main crops</span><span class="hi">मुख्य फ़सलें</span><span class="or">ମୁଖ୍ୟ ଫସଲ</span><span class="ta">முக்கிய பயிர்கள்</span></legend>
+            <div class="chips"><label class="chip"><input type="checkbox" name="crops" value="Wheat"><span><span class="en">Wheat</span><span class="hi">गेहूँ</span><span class="or">ଗହମ</span><span class="ta">கோதுமை</span></span></label><label class="chip"><input type="checkbox" name="crops" value="Paddy"><span><span class="en">Paddy</span><span class="hi">धान</span><span class="or">ଧାନ</span><span class="ta">நெல்</span></span></label><label class="chip"><input type="checkbox" name="crops" value="Maize"><span><span class="en">Maize</span><span class="hi">मक्का</span><span class="or">ମକା</span><span class="ta">மக்காச்சோளம்</span></span></label><label class="chip"><input type="checkbox" name="crops" value="Sugarcane"><span><span class="en">Sugarcane</span><span class="hi">गन्ना</span><span class="or">ଆଖୁ</span><span class="ta">கரும்பு</span></span></label><label class="chip"><input type="checkbox" name="crops" value="Cotton"><span><span class="en">Cotton</span><span class="hi">कपास</span><span class="or">କପା</span><span class="ta">பருத்தி</span></span></label><label class="chip"><input type="checkbox" name="crops" value="Other"><span><span class="en">Other</span><span class="hi">अन्य</span><span class="or">ଅନ୍ୟ</span><span class="ta">பிற</span></span></label></div>
+          </fieldset>
+          <fieldset class="field wide">
+            <legend class="field-label"><span class="en">Fertilizer you use now</span><span class="hi">अभी कौन-सी खाद डालते हैं</span><span class="or">ବର୍ତ୍ତମାନ କେଉଁ ସାର ଦିଅନ୍ତି</span><span class="ta">இப்போது பயன்படுத்தும் உரம்</span></legend>
+            <div class="chips"><label class="chip"><input type="checkbox" name="fertilizer" value="Urea"><span><span class="en">Urea</span><span class="hi">यूरिया</span><span class="or">ୟୁରିଆ</span><span class="ta">யூரியா</span></span></label><label class="chip"><input type="checkbox" name="fertilizer" value="DAP"><span>DAP</span></label><label class="chip"><input type="checkbox" name="fertilizer" value="Other"><span><span class="en">Other</span><span class="hi">अन्य</span><span class="or">ଅନ୍ୟ</span><span class="ta">பிற</span></span></label></div>
+          </fieldset>
+          <fieldset class="field wide">
+            <legend class="field-label"><span class="en">Can a tractor reach your field?</span><span class="hi">क्या आपके खेत तक ट्रैक्टर पहुँच सकता है?</span><span class="or">ଆପଣଙ୍କ ଜମିକୁ ଟ୍ରାକ୍ଟର ପହଞ୍ଚିପାରିବ କି?</span><span class="ta">உங்கள் வயலுக்கு டிராக்டர் செல்ல முடியுமா?</span></legend>
+            <div class="chips"><label class="chip"><input type="radio" name="tractor" value="Yes"><span><span class="en">Yes</span><span class="hi">हाँ</span><span class="or">ହଁ</span><span class="ta">ஆம்</span></span></label><label class="chip"><input type="radio" name="tractor" value="No"><span><span class="en">No</span><span class="hi">नहीं</span><span class="or">ନାହିଁ</span><span class="ta">இல்லை</span></span></label></div>
+          </fieldset>
+          <fieldset class="field wide">
+            <legend class="field-label"><span class="en">How should we reach you?</span><span class="hi">हम आपसे कैसे संपर्क करें?</span><span class="or">ଆମେ ଆପଣଙ୍କ ସହ କିପରି ଯୋଗାଯୋଗ କରିବୁ?</span><span class="ta">நாங்கள் உங்களை எப்படித் தொடர்பு கொள்ளலாம்?</span></legend>
+            <div class="chips"><label class="chip"><input type="radio" name="contact" value="WhatsApp"><span><span class="en">WhatsApp</span><span class="hi">व्हाट्सएप्प</span><span class="or">ହ୍ୱାଟସଆପ୍</span><span class="ta">வாட்ஸ்அப்</span></span></label><label class="chip"><input type="radio" name="contact" value="Call"><span><span class="en">Phone call</span><span class="hi">फ़ोन कॉल</span><span class="or">ଫୋନ୍ କଲ୍</span><span class="ta">தொலைபேசி அழைப்பு</span></span></label><label class="chip"><input type="radio" name="contact" value="Visit"><span><span class="en">Visit by ACME team</span><span class="hi">ACME टीम की विज़िट</span><span class="or">ACME ଦଳର ଗସ୍ତ</span><span class="ta">ACME குழுவின் வருகை</span></span></label></div>
+          </fieldset>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" name="consent" value="yes" required>
+          <span><span class="en">I agree that ACME can contact me about this trial and related farm products.</span><span class="hi">मैं सहमत हूँ कि ACME इस ट्रायल और संबंधित कृषि उत्पादों के बारे में मुझसे संपर्क कर सकता है।</span><span class="or">ମୁଁ ସହମତ ଯେ ACME ଏହି ପରୀକ୍ଷଣ ଓ ସମ୍ବନ୍ଧିତ କୃଷି ଉତ୍ପାଦ ବିଷୟରେ ମୋ ସହ ଯୋଗାଯୋଗ କରିପାରିବ।</span><span class="ta">இந்தச் சோதனை மற்றும் தொடர்புடைய வேளாண் பொருட்கள் குறித்து ACME என்னைத் தொடர்பு கொள்ள ஒப்புக்கொள்கிறேன்.</span></span>
+        </label>
+
+        <p class="form-error" id="formError" role="alert" hidden>
+          <span data-err="fields"><span class="en">Please fill in the marked fields.</span><span class="hi">कृपया * वाली जानकारी भरें।</span><span class="or">ଦୟାକରି * ଥିବା ବିବରଣୀ ପୂରଣ କରନ୍ତୁ।</span><span class="ta">* குறியிட்ட விவரங்களை நிரப்புங்கள்.</span></span>
+          <span data-err="mobile"><span class="en">Enter a 10-digit mobile number.</span><span class="hi">10 अंकों का मोबाइल नंबर लिखें।</span><span class="or">10 ଅଙ୍କର ମୋବାଇଲ୍ ନମ୍ବର ଲେଖନ୍ତୁ।</span><span class="ta">10 இலக்க கைபேசி எண்ணை உள்ளிடுங்கள்.</span></span>
+          <span data-err="consent"><span class="en">Please tick the box to agree.</span><span class="hi">कृपया सहमति के लिए बॉक्स पर टिक करें।</span><span class="or">ସହମତି ପାଇଁ ଦୟାକରି ବାକ୍ସରେ ଟିକ୍ ଦିଅନ୍ତୁ।</span><span class="ta">ஒப்புதலுக்குப் பெட்டியில் டிக் செய்யுங்கள்.</span></span>
+        </p>
+
+        <button class="btn btn-primary btn-submit" type="submit"><span class="en">Register</span><span class="hi">रजिस्टर करें</span><span class="or">ପଞ୍ଜୀକରଣ କରନ୍ତୁ</span><span class="ta">பதிவு செய்யுங்கள்</span></button>
+      </form>
+
+      <div class="reg-done" id="regDone" hidden tabindex="-1">
+        <div class="done-tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3><span class="en">Thank you!</span><span class="hi">धन्यवाद!</span><span class="or">ଧନ୍ୟବାଦ!</span><span class="ta">நன்றி!</span></h3>
+        <p><span class="en">Now tap below to send these details to our team on WhatsApp.</span><span class="hi">अब नीचे दबाकर यह जानकारी व्हाट्सएप्प पर हमारी टीम को भेजें।</span><span class="or">ଏବେ ତଳେ ଦବାଇ ଏହି ବିବରଣୀ ହ୍ୱାଟସଆପରେ ଆମ ଦଳକୁ ପଠାନ୍ତୁ।</span><span class="ta">இப்போது கீழே அழுத்தி இந்த விவரங்களை வாட்ஸ்அப்பில் எங்கள் குழுவுக்கு அனுப்புங்கள்.</span></p>
+        <a class="btn btn-wa" id="regWa" href="https://wa.me/919732297322" target="_blank" rel="noopener"><span class="en">Send on WhatsApp</span><span class="hi">व्हाट्सएप्प पर भेजें</span><span class="or">ହ୍ୱାଟସଆପରେ ପଠାନ୍ତୁ</span><span class="ta">வாட்ஸ்அப்பில் அனுப்புங்கள்</span></a>
+      </div>
+    </div>
+  </div>
+</section>

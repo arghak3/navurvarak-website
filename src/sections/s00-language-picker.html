@@ -1,0 +1,23 @@
+<!-- ============================================================
+     00 · LANGUAGE PICKER
+     Opens on a farmer's first visit, and again from the language
+     button. Each language is written in its own script so it can
+     be found without reading English.
+     ============================================================ -->
+<div class="lang-picker" id="langPicker" role="dialog" aria-modal="true" aria-labelledby="langPickerTitle" hidden>
+  <div class="lang-card">
+    <img class="lang-logo" src="assets/logos/navurvarak-logo.png" alt="ACME NavUrvarak" width="1708" height="587">
+    <h2 id="langPickerTitle" class="lang-title">
+      <span lang="en">Choose your language</span>
+      <span lang="hi">अपनी भाषा चुनें</span>
+      <span lang="or">ଆପଣଙ୍କ ଭାଷା ବାଛନ୍ତୁ</span>
+      <span lang="ta">உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்</span>
+    </h2>
+    <div class="lang-options">
+      <button type="button" data-set-lang="hi"><b lang="hi">हिन्दी</b><small>Hindi</small></button>
+      <button type="button" data-set-lang="or"><b lang="or">ଓଡ଼ିଆ</b><small>Odia</small></button>
+      <button type="button" data-set-lang="ta"><b lang="ta">தமிழ்</b><small>Tamil</small></button>
+      <button type="button" data-set-lang="en"><b>English</b><small>English</small></button>
+    </div>
+  </div>
+</div>

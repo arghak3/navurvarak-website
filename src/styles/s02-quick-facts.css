@@ -1,0 +1,14 @@
+/* ============================================================
+   02 · QUICK FACTS
+   Lifted over the hero's lower edge.
+   ============================================================ */
+.facts{ position:relative; z-index:2; margin-top:-64px; }
+.facts-grid{
+  display:grid; grid-template-columns:repeat(4, 1fr);
+  background:#fff; border-radius:28px; box-shadow:var(--shadow); border:1px solid var(--line); overflow:hidden;
+}
+.fact{ padding:28px 26px; border-right:1px solid var(--line); }
+.fact:last-child{ border-right:0; }
+.fact-num{ font-size:clamp(2.4rem, 4vw, 3.2rem); font-weight:800; color:var(--green); line-height:1; }
+.fact-label{ margin-top:10px; font-weight:600; color:var(--green-ink); line-height:1.35; }
+.fact-vs{ margin-top:6px; font-size:.92rem; color:var(--muted); line-height:1.4; }

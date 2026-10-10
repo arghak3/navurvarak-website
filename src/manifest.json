@@ -1,0 +1,52 @@
+{
+  "styles": [
+    "00-tokens-and-base.css",
+    "lib-section-furniture.css",
+    "s00-language-picker.css",
+    "s00a-announcement-strip.css",
+    "s00b-header.css",
+    "s01-hero.css",
+    "s02-quick-facts.css",
+    "s03-what-it-is.css",
+    "s04-benefits.css",
+    "s05-compare.css",
+    "s06-how-applied.css",
+    "s07-crops.css",
+    "s08-icar-results.css",
+    "s09-safety.css",
+    "s10-faqs.css",
+    "s11-register.css",
+    "s12-helpline.css",
+    "s13-footer.css",
+    "s14-sticky-bar.css",
+    "zz-responsive.css"
+  ],
+  "sections": [
+    "s00-language-picker.html",
+    "s00a-announcement-strip.html",
+    "s00b-header-and-menu.html",
+    "s01-hero.html",
+    "s02-quick-facts.html",
+    "s03-what-it-is.html",
+    "s04-benefits.html",
+    "s05-compare.html",
+    "s06-how-applied.html",
+    "s07-crops.html",
+    "s08-icar-results.html",
+    "s09-safety.html",
+    "s10-faqs.html",
+    "s11-register.html",
+    "s12-helpline.html",
+    "s13-footer.html",
+    "s14-sticky-bar.html"
+  ],
+  "scripts": [
+    "00-boot.js",
+    "lib-language.js",
+    "s00-mobile-menu.js",
+    "s00-nav-active.js",
+    "lib-reveal-on-scroll.js",
+    "s08-bars.js",
+    "s11-register-form.js"
+  ]
+}

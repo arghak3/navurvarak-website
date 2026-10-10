@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACME NavUrvarak — Less fertilizer. More nitrogen. Better crop.</title>
+<meta name="description" content="ACME NavUrvarak: new-technology nitrogen fertilizer with 82% nitrogen, applied once, straight to the roots. Tested with ICAR. Register your farm for the field trial: WhatsApp or call 97322-97322.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1F5E2E">
+<!-- Preview on GitHub Pages: kept out of search results until ACME signs off. Remove at launch. -->
+<meta name="robots" content="noindex, nofollow">
+
+<!-- What a link shared on WhatsApp shows. Farmers will mostly arrive
+     this way, so the card matters more than the search snippet. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ACME NavUrvarak">
+<meta property="og:title" content="ACME NavUrvarak — Less fertilizer. More nitrogen. Better crop.">
+<meta property="og:description" content="82% nitrogen, applied once, straight to the roots. Tested with ICAR. Register for the field trial: 97322-97322.">
+<meta property="og:url" content="https://arghak3.github.io/navurvarak-website/">
+<meta property="og:image" content="https://arghak3.github.io/navurvarak-website/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="or_IN">
+<meta property="og:locale:alternate" content="ta_IN">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- One family of headline faces across all four scripts (Baloo 2,
+     Baloo Bhaina 2, Baloo Thambi 2) and Noto Sans for reading, so the
+     page looks like the same brand in every language. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Baloo+Bhaina+2:wght@600;700;800&family=Baloo+Thambi+2:wght@600;700;800&family=Noto+Sans:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600&family=Noto+Sans+Oriya:wght@400;500;600&family=Noto+Sans+Tamil:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   00 · TOKENS AND BASE
+   Colours come from the NavUrvarak logo: the leaf green, the
+   drop blue and ACME's red. Red is kept for safety only.
+   ============================================================ */
+:root{
+  --green:#318D44;          /* logo leaf */
+  --green-deep:#1F5E2E;
+  --green-ink:#123A1C;
+  --green-tint:#EAF4EC;
+  --green-mist:#F4F8F2;
+  --blue:#287AC3;           /* logo drop */
+  --blue-tint:#E8F1FA;
+  --red:#C02C2C;            /* ACME arcs: safety only */
+  --red-tint:#FBECEC;
+  --gold:#E2A72E;           /* ripe crop, for small accents */
+  --ink:#16261B;
+  --muted:#56665A;
+  --line:#DCE6DD;
+  --paper:#FFFFFF;
+  --cream:#FAFBF6;
+
+  --font-head:"Baloo 2", "Noto Sans", system-ui, sans-serif;
+  --font-body:"Noto Sans", system-ui, sans-serif;
+
+  --radius:20px;
+  --radius-sm:12px;
+  --shadow:0 1px 2px rgba(18,58,28,.06), 0 12px 32px -12px rgba(18,58,28,.18);
+  --wrap:1180px;
+  --header-h:76px;
+}
+
+/* One headline family and one reading family per script */
+html[data-lang="hi"]{ --font-head:"Baloo 2", "Noto Sans Devanagari", sans-serif; --font-body:"Noto Sans Devanagari", "Noto Sans", sans-serif; }
+html[data-lang="or"]{ --font-head:"Baloo Bhaina 2", "Noto Sans Oriya", sans-serif; --font-body:"Noto Sans Oriya", "Noto Sans", sans-serif; }
+html[data-lang="ta"]{ --font-head:"Baloo Thambi 2", "Noto Sans Tamil", sans-serif; --font-body:"Noto Sans Tamil", "Noto Sans", sans-serif; }
+
+/* Four languages, one page: every string carries all four, and
+   only the chosen one is shown. Works with JavaScript off. */
+html[data-lang="en"] :is(.hi,.or,.ta),
+html[data-lang="hi"] :is(.en,.or,.ta),
+html[data-lang="or"] :is(.en,.hi,.ta),
+html[data-lang="ta"] :is(.en,.hi,.or){ display:none !important; }
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; scroll-padding-top:calc(var(--header-h) + 12px); -webkit-text-size-adjust:100%; }
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-body); font-size:18px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+/* Tamil and Odia set longer words and taller glyphs */
+html[data-lang="ta"] body{ font-size:17px; line-height:1.7; }
+html[data-lang="or"] body{ line-height:1.7; }
+
+img{ max-width:100%; display:block; }
+a{ color:var(--green-deep); }
+h1,h2,h3,h4{ font-family:var(--font-head); color:var(--green-ink); line-height:1.15; margin:0; font-weight:700; letter-spacing:-.01em; }
+html:is([data-lang="hi"],[data-lang="or"],[data-lang="ta"]) :is(h1,h2,h3,h4){ line-height:1.3; letter-spacing:0; }
+p{ margin:0; }
+button,input,select,textarea{ font:inherit; color:inherit; }
+:focus-visible{ outline:3px solid var(--blue); outline-offset:3px; border-radius:6px; }
+
+.wrap{ width:min(var(--wrap), 100% - 40px); margin-inline:auto; }
+.num{ font-family:"Baloo 2", var(--font-head); font-variant-numeric:tabular-nums; }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.55em;
+  min-height:52px; padding:.7em 1.4em; border-radius:999px; border:2px solid transparent;
+  font-family:var(--font-head); font-weight:700; font-size:1.05rem; line-height:1.2;
+  text-decoration:none; cursor:pointer; transition:transform .15s ease, background .2s ease, box-shadow .2s ease;
+}
+.btn:active{ transform:translateY(1px); }
+.btn-primary{ background:var(--green); color:#fff; box-shadow:0 8px 20px -8px rgba(49,141,68,.7); }
+.btn-primary:hover{ background:var(--green-deep); }
+.btn-ghost{ background:#fff; color:var(--green-deep); border-color:var(--green); }
+.btn-ghost:hover{ background:var(--green-tint); }
+.btn-wa{ background:#1FA855; color:#fff; }
+.btn-wa:hover{ background:#178a45; }
+.btn svg{ width:22px; height:22px; flex:none; }
+
+.sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+/* ============================================================
+   SECTION FURNITURE: the parts every section shares
+   ============================================================ */
+.section{ padding:clamp(64px, 9vw, 112px) 0; position:relative; }
+.section-tint{ background:var(--green-mist); }
+.section-head{ max-width:760px; margin-bottom:clamp(32px, 5vw, 52px); }
+.section-head.center{ margin-inline:auto; text-align:center; }
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px; margin-bottom:14px;
+  font-family:var(--font-head); font-weight:700; font-size:.95rem; letter-spacing:.04em;
+  color:var(--green); text-transform:uppercase;
+}
+html:not([data-lang="en"]) .eyebrow{ text-transform:none; letter-spacing:0; font-size:1rem; }
+.eyebrow::before{ content:""; width:28px; height:3px; border-radius:3px; background:var(--green); }
+.section-head.center .eyebrow::before{ display:none; }
+.section-title{ font-size:clamp(2rem, 4.4vw, 3.1rem); }
+.section-lead{ margin-top:16px; font-size:1.15rem; color:var(--muted); }
+
+.icon-badge{
+  width:60px; height:60px; border-radius:18px; flex:none;
+  display:grid; place-items:center; background:var(--green-tint); color:var(--green-deep);
+}
+.icon-badge svg{ width:32px; height:32px; }
+
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in{ opacity:1; transform:none; }
+html:not(.js) .reveal{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+  html{ scroll-behavior:auto; }
+}
+/* ============================================================
+   00 · LANGUAGE PICKER
+   ============================================================ */
+.lang-picker{
+  position:fixed; inset:0; z-index:100; display:grid; place-items:center; padding:20px;
+  background:rgba(18,58,28,.55); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+}
+.lang-picker[hidden]{ display:none; }
+.lang-card{
+  width:min(520px, 100%); background:#fff; border-radius:28px; padding:32px 28px 28px;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.45); text-align:center;
+  animation:pickIn .35s ease both;
+}
+@keyframes pickIn{ from{ opacity:0; transform:translateY(12px) scale(.98); } to{ opacity:1; transform:none; } }
+.lang-logo{ width:200px; height:auto; margin:0 auto 18px; }
+.lang-title{ display:grid; gap:6px; line-height:1.4; font-size:1.05rem; color:var(--muted); font-weight:600; margin-bottom:22px; }
+.lang-title span:first-child{ font-size:1.35rem; color:var(--green-ink); }
+.lang-title [lang="hi"]{ font-family:"Noto Sans Devanagari"; }
+.lang-title [lang="or"]{ font-family:"Noto Sans Oriya"; }
+.lang-title [lang="ta"]{ font-family:"Noto Sans Tamil"; }
+.lang-options{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.lang-options button{
+  display:grid; gap:2px; padding:18px 12px; border-radius:18px; cursor:pointer;
+  background:var(--green-mist); border:2px solid var(--line); transition:border-color .2s, background .2s, transform .15s;
+}
+.lang-options button:hover{ border-color:var(--green); background:var(--green-tint); }
+.lang-options button:active{ transform:scale(.98); }
+.lang-options b{ font-size:1.6rem; line-height:1.3; color:var(--green-ink); font-weight:700; }
+.lang-options b[lang="hi"]{ font-family:"Baloo 2"; }
+.lang-options b[lang="or"]{ font-family:"Baloo Bhaina 2"; }
+.lang-options b[lang="ta"]{ font-family:"Baloo Thambi 2"; }
+.lang-options button:last-child b{ font-family:"Baloo 2"; }
+.lang-options small{ font-family:"Noto Sans"; font-size:.85rem; color:var(--muted); }
+.lang-options button[aria-pressed="true"]{ border-color:var(--green); background:var(--green-tint); }
+/* ============================================================
+   00a · ANNOUNCEMENT STRIP
+   ============================================================ */
+.strip{ background:var(--green-ink); color:#E6F2E8; font-size:.95rem; }
+.strip-inner{ display:flex; align-items:center; gap:12px; min-height:44px; padding:6px 0; }
+.strip p{ flex:1; line-height:1.4; }
+.strip a{ color:#fff; font-weight:600; text-underline-offset:3px; }
+.strip-dot{ width:8px; height:8px; border-radius:50%; background:#7BD88F; flex:none; box-shadow:0 0 0 0 rgba(123,216,143,.6); animation:pulse 2s infinite; }
+@keyframes pulse{ 70%{ box-shadow:0 0 0 10px rgba(123,216,143,0); } 100%{ box-shadow:0 0 0 0 rgba(123,216,143,0); } }
+.strip-phone{ display:inline-flex; align-items:center; gap:6px; text-decoration:none; font-weight:700; white-space:nowrap; }
+.strip-phone svg{ width:16px; height:16px; }
+/* ============================================================
+   00b · HEADER
+   Two rows on desktop: the two logos, then the menu.
+   ============================================================ */
+.site-header{
+  position:sticky; top:0; z-index:50; background:#fff;
+  backdrop-filter:saturate(1.4) blur(10px); -webkit-backdrop-filter:saturate(1.4) blur(10px);
+  border-bottom:1px solid var(--line); transition:box-shadow .25s;
+}
+.site-header.scrolled{ box-shadow:0 8px 24px -16px rgba(18,58,28,.35); }
+.header-top{ display:flex; align-items:center; justify-content:space-between; gap:16px; height:var(--header-h); }
+.brand img{ height:60px; width:auto; }
+.header-right{ display:flex; align-items:center; gap:14px; }
+.acme-logo img{ height:50px; width:auto; }
+.lang-btn{
+  display:inline-flex; align-items:center; gap:8px; height:42px; padding:0 16px; border-radius:999px;
+  background:var(--green-mist); border:1.5px solid var(--line); cursor:pointer; font-weight:600; font-size:.95rem; color:var(--green-ink);
+}
+.lang-btn:hover{ border-color:var(--green); }
+.lang-btn svg{ width:20px; height:20px; color:var(--green); }
+
+.header-nav{ border-top:1px solid var(--line); }
+.nav{ display:flex; align-items:center; gap:6px; min-height:58px; }
+.nav a:not(.btn){
+  position:relative; padding:10px 14px; border-radius:10px; text-decoration:none;
+  color:var(--ink); font-weight:500; font-size:1rem; white-space:nowrap;
+}
+.nav a:not(.btn):hover{ background:var(--green-mist); color:var(--green-deep); }
+.nav a.active{ color:var(--green-deep); }
+.nav a.active::after{ content:""; position:absolute; left:14px; right:14px; bottom:4px; height:3px; border-radius:3px; background:var(--green); }
+.nav-group{ display:inline-flex; align-items:center; gap:6px; margin-left:auto; color:var(--blue) !important; font-weight:600 !important; }
+.nav-group svg{ width:16px; height:16px; }
+.nav-cta{ min-height:44px; padding:.5em 1.2em; font-size:.98rem; }
+
+.menu-btn{ display:none; width:46px; height:46px; border-radius:12px; border:1.5px solid var(--line); background:#fff; cursor:pointer; padding:0 11px; }
+.menu-btn span{ display:block; height:2.5px; border-radius:2px; background:var(--green-ink); margin:5px 0; transition:transform .25s, opacity .25s; }
+body.menu-open .menu-btn span:nth-child(1){ transform:translateY(7.5px) rotate(45deg); }
+body.menu-open .menu-btn span:nth-child(2){ opacity:0; }
+body.menu-open .menu-btn span:nth-child(3){ transform:translateY(-7.5px) rotate(-45deg); }
+.nav-cta{ white-space:nowrap; }
+html:is([data-lang="ta"],[data-lang="or"]) .nav a:not(.btn){ padding-inline:10px; font-size:.95rem; }
+html[data-lang="ta"] .nav-cta{ font-size:.92rem; padding-inline:1em; }
+/* Tamil runs long: on small laptops the register button stays in the hero, not the menu */
+@media (min-width:961px) and (max-width:1150px){ html[data-lang="ta"] .nav-cta{ display:none; } }
+/* ============================================================
+   01 · HERO
+   ============================================================ */
+.hero{
+  position:relative; overflow:hidden; padding:clamp(40px, 6vw, 80px) 0 clamp(90px, 10vw, 130px);
+  background:
+    radial-gradient(900px 500px at 85% 10%, rgba(40,122,195,.10), transparent 60%),
+    radial-gradient(700px 500px at 0% 100%, rgba(49,141,68,.14), transparent 60%),
+    linear-gradient(180deg, #fff 0%, var(--green-mist) 100%);
+}
+.hero-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(32px, 5vw, 72px); align-items:center; }
+.hero-title{ font-size:clamp(2.6rem, 6.2vw, 4.6rem); line-height:1.02; font-weight:800; color:var(--green-ink); }
+html:not([data-lang="en"]) .hero-title{ line-height:1.2; font-size:clamp(2.3rem, 5.4vw, 4rem); }
+.hero-title em{ font-style:normal; color:var(--green); position:relative; white-space:nowrap; }
+.hero-title em::after{
+  content:""; position:absolute; left:0; right:0; bottom:.06em; height:.14em; border-radius:99px;
+  background:linear-gradient(90deg, var(--gold), rgba(226,167,46,.25)); z-index:-1;
+}
+.hero-sub{ margin-top:22px; font-size:clamp(1.1rem, 1.6vw, 1.28rem); color:#33463A; max-width:34em; }
+.hero-ctas{ display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+.hero-call{ margin-top:14px; color:var(--muted); font-size:1rem; }
+.hero-call a{ font-weight:700; font-size:1.15rem; color:var(--green-deep); text-decoration:none; margin-left:4px; }
+.hero-trust{
+  display:inline-flex; align-items:center; gap:10px; margin-top:26px; padding:10px 16px 10px 12px;
+  background:#fff; border:1px solid var(--line); border-radius:999px; font-weight:600; font-size:.98rem; color:var(--green-deep);
+}
+.hero-trust svg{ width:24px; height:24px; color:var(--green); flex:none; }
+
+.hero-media{ position:relative; margin:0; }
+.hero-media img{
+  width:100%; height:auto; aspect-ratio:1000/1180; object-fit:cover;
+  border-radius:200px 200px 32px 32px; box-shadow:0 40px 80px -30px rgba(18,58,28,.45);
+}
+.hero-chip{
+  position:absolute; background:#fff; border-radius:20px; box-shadow:var(--shadow);
+  padding:14px 18px; display:grid; line-height:1.2;
+}
+.hero-chip-n{ left:-28px; bottom:18%; text-align:left; }
+.chip-big{ font-size:2.6rem; font-weight:800; color:var(--green); line-height:1; }
+.chip-label{ font-weight:600; color:var(--green-ink); }
+.chip-vs{ font-size:.88rem; color:var(--muted); margin-top:4px; }
+.hero-chip-once{ right:-18px; top:14%; grid-auto-flow:column; align-items:center; gap:12px; max-width:240px; font-weight:600; color:var(--green-ink); font-size:.98rem; }
+.chip-icon{ width:46px; height:46px; border-radius:14px; display:grid; place-items:center; background:var(--blue); color:#fff; font-family:"Baloo 2"; font-weight:800; font-size:1.3rem; }
+html[data-lang="ta"] .hero-chip-once{ max-width:270px; }
+/* ============================================================
+   02 · QUICK FACTS
+   Lifted over the hero's lower edge.
+   ============================================================ */
+.facts{ position:relative; z-index:2; margin-top:-64px; }
+.facts-grid{
+  display:grid; grid-template-columns:repeat(4, 1fr);
+  background:#fff; border-radius:28px; box-shadow:var(--shadow); border:1px solid var(--line); overflow:hidden;
+}
+.fact{ padding:28px 26px; border-right:1px solid var(--line); }
+.fact:last-child{ border-right:0; }
+.fact-num{ font-size:clamp(2.4rem, 4vw, 3.2rem); font-weight:800; color:var(--green); line-height:1; }
+.fact-label{ margin-top:10px; font-weight:600; color:var(--green-ink); line-height:1.35; }
+.fact-vs{ margin-top:6px; font-size:.92rem; color:var(--muted); line-height:1.4; }
+/* ============================================================
+   03 · WHAT IS NAVURVARAK
+   ============================================================ */
+.what-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(32px, 6vw, 80px); align-items:center; }
+.what-media{ margin:0; position:relative; }
+.what-media img{ width:100%; height:auto; aspect-ratio:9/11; object-fit:cover; border-radius:32px 32px 32px 200px; box-shadow:var(--shadow); }
+.name-card{
+  margin-top:28px; padding:20px 22px; border-radius:var(--radius); background:var(--green-mist);
+  border:1px solid var(--line); display:grid; gap:8px;
+}
+.name-split{ font-family:"Baloo 2"; font-weight:800; font-size:1.6rem; line-height:1; }
+.nav-blue{ color:var(--blue); }
+.urv-green{ color:var(--green); }
+/* ============================================================
+   04 · BENEFITS
+   ============================================================ */
+.benefit-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
+.benefit{
+  background:#fff; border-radius:var(--radius); padding:28px; border:1px solid var(--line);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.benefit:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
+.benefit h3{ margin-top:18px; font-size:1.35rem; }
+.benefit p{ margin-top:8px; color:var(--muted); }
+/* ============================================================
+   05 · NAVURVARAK OR UREA
+   ============================================================ */
+.cmp{ max-width:900px; margin-inline:auto; border-radius:24px; overflow:hidden; border:1px solid var(--line); background:#fff; box-shadow:var(--shadow); }
+.cmp-row{ display:grid; grid-template-columns:1.2fr 1fr 1fr; align-items:center; }
+.cmp-row > span{ padding:18px 22px; border-top:1px solid var(--line); }
+.cmp-head > span{ border-top:0; padding-block:20px; font-family:var(--font-head); font-weight:700; font-size:1.2rem; }
+.cmp-row [role="rowheader"]{ font-weight:600; color:var(--green-ink); }
+.cmp .cmp-nu{ background:var(--green-tint); color:var(--green-deep); font-weight:700; }
+.cmp-head .cmp-nu{ background:var(--green); color:#fff; display:flex; align-items:center; gap:10px; }
+.cmp-head .cmp-nu img{ background:#fff; border-radius:8px; padding:2px; }
+.cmp .cmp-urea{ color:var(--muted); }
+.cmp-head .cmp-urea{ color:var(--ink); background:#F1F3F1; }
+.cmp .big{ font-size:1.7rem; font-weight:800; }
+.cmp-note{ text-align:center; margin-top:14px; font-size:.9rem; color:var(--muted); }
+.cmp-row > span{ min-width:0; overflow-wrap:anywhere; hyphens:auto; }
+/* ============================================================
+   06 · HOW IT'S APPLIED
+   ============================================================ */
+.how-top{ display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:end; }
+.how-machine{ margin:0 0 clamp(24px, 4vw, 40px); position:relative; }
+.how-machine::before{
+  content:""; position:absolute; inset:18% 4% 0; border-radius:50%; z-index:0;
+  background:radial-gradient(closest-side, rgba(49,141,68,.18), transparent);
+}
+.how-machine img{ position:relative; width:100%; max-width:480px; margin-left:auto; height:auto; }
+.how-machine figcaption{ text-align:right; font-size:.9rem; color:var(--muted); margin-top:6px; }
+
+.steps{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; counter-reset:s; }
+.step{ position:relative; background:#fff; border-radius:var(--radius); padding:26px 22px; border:1px solid var(--line); }
+.step:not(:last-child)::after{
+  content:""; position:absolute; top:50px; right:-14px; width:10px; height:10px; z-index:1;
+  border-top:3px solid var(--green); border-right:3px solid var(--green); transform:rotate(45deg);
+}
+.step-n{
+  position:absolute; top:18px; right:20px; font-size:2.6rem; font-weight:800; line-height:1; color:var(--green-tint);
+}
+.step-icon{ width:52px; height:52px; color:var(--green); }
+.step h3{ margin-top:14px; font-size:1.2rem; }
+.step p{ margin-top:6px; color:var(--muted); font-size:1rem; }
+
+.practices{
+  margin-top:28px; padding:28px clamp(22px, 4vw, 40px); border-radius:var(--radius);
+  background:var(--green-ink); color:#E6F2E8;
+}
+.practices h3{ color:#fff; font-size:1.4rem; }
+.practices ul{ list-style:none; margin:16px 0 0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:12px 36px; }
+.practices li{ position:relative; padding-left:34px; }
+.practices li::before{
+  content:""; position:absolute; left:0; top:.3em; width:22px; height:22px; border-radius:50%;
+  background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat;
+}
+/* ============================================================
+   07 · CROPS
+   ============================================================ */
+.crop-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; }
+.crop{ margin:0; position:relative; border-radius:var(--radius); overflow:hidden; aspect-ratio:4/5; box-shadow:var(--shadow); }
+.crop img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+.crop:hover img{ transform:scale(1.05); }
+.crop figcaption{
+  position:absolute; inset:auto 0 0; padding:44px 18px 16px; color:#fff;
+  font-family:var(--font-head); font-weight:700; font-size:1.5rem;
+  background:linear-gradient(transparent, rgba(18,58,28,.85));
+}
+.crops-also{ text-align:center; margin-top:22px; color:var(--muted); }
+/* ============================================================
+   08 · ICAR RESULTS
+   Deep green, with the green wheat field behind it.
+   ============================================================ */
+.results{ color:#E6F2E8; }
+.results{ background:
+    linear-gradient(180deg, rgba(18,58,28,.93) 0%, rgba(18,58,28,.97) 100%),
+    url("assets/img/field-wheat-green.jpg") center/cover; }
+.results .section-title{ color:#fff; }
+.eyebrow-light{ color:#9FE0AC; }
+.eyebrow-light::before{ background:#9FE0AC; }
+.results-head{ max-width:820px; margin-bottom:44px; }
+.results-line{ margin-top:16px; display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 14px; }
+.results-line .hi-line{ font-family:"Baloo 2"; font-weight:700; font-size:1.5rem; color:var(--gold); }
+.results-line > span:not(.hi-line){ color:#CFE6D4; font-style:italic; }
+.results-lead{ margin-top:16px; font-size:1.12rem; color:#CFE6D4; }
+
+.results-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:start; }
+.chart-card{ background:#fff; color:var(--ink); border-radius:24px; padding:28px clamp(20px, 3vw, 36px) 32px; }
+.chart-big{ font-family:var(--font-head); font-weight:700; font-size:1.5rem; color:var(--green-ink); }
+
+.chart-title{ color:var(--muted); font-size:.95rem; margin-top:2px; }
+.bars{ margin-top:18px; display:grid; gap:8px; }
+.bars-site{ margin-top:14px; font-weight:600; font-size:.95rem; color:var(--green-ink); }
+.bar{ display:grid; grid-template-columns:120px 1fr 52px; align-items:center; gap:12px; }
+.bar-label{ font-size:.92rem; color:var(--muted); }
+.bar-fill{ height:30px; border-radius:8px; background:#D5DBD6; width:calc(var(--v) / 5.5 * 100%); transform-origin:left; }
+.bar-nu .bar-fill{ background:linear-gradient(90deg, var(--green), #46A85A); }
+.bar-nu .bar-label{ color:var(--green-deep); font-weight:600; }
+.bar b{ font-size:1.15rem; }
+.bar-nu b{ color:var(--green-deep); }
+.js .bars .bar-fill{ transform:scaleX(0); transition:transform 1.1s cubic-bezier(.2,.7,.2,1); }
+.js .bars.in .bar-fill{ transform:scaleX(1); }
+.js .bars.in .bar:nth-of-type(2) .bar-fill,
+.js .bars.in .bar:nth-of-type(4) .bar-fill{ transition-delay:.2s; }
+
+.highlights{ list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+.highlights li{ padding:18px 20px; border-radius:18px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); }
+.highlights h3{ color:#fff; font-size:1.15rem; }
+.highlights p{ margin-top:4px; color:#CFE6D4; font-size:1rem; }
+
+.season{
+  margin-top:28px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  padding:24px 28px; border-radius:22px; background:linear-gradient(90deg, rgba(226,167,46,.22), rgba(226,167,46,.06));
+  border:1px solid rgba(226,167,46,.45);
+}
+.season-tag{ font-family:var(--font-head); font-weight:700; color:var(--gold); font-size:1.1rem; }
+.season-text{ font-size:1.12rem; color:#fff; max-width:40em; }
+.results-note{ margin-top:22px; font-size:.92rem; color:#A9C9B0; }
+.chart-big b.num{ font-size:3rem; font-weight:800; color:var(--green); }
+/* ============================================================
+   09 · SAFETY
+   The only place the ACME red is used.
+   ============================================================ */
+.eyebrow-red{ color:var(--red); }
+.eyebrow-red::before{ background:var(--red); }
+.safety-grid{ display:grid; grid-template-columns:1.2fr .8fr; gap:22px; }
+.rules, .gear{ border-radius:var(--radius); padding:28px; }
+.rules{ background:var(--red-tint); border:1px solid #F1CFCF; }
+.rules h3{ font-size:1.25rem; color:#7A1B1B; }
+.rules h3 + ul{ margin-top:12px; }
+.rules ul + h3{ margin-top:26px; }
+.rule-list{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.rule-list li{ position:relative; padding-left:36px; }
+.rule-list li::before{ content:""; position:absolute; left:0; top:.2em; width:24px; height:24px; border-radius:50%; background-position:center; background-repeat:no-repeat; background-size:14px; }
+.rule-no li::before{ background-color:var(--red); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 6l12 12M18 6L6 18' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.rule-act li::before{ background-color:#7A1B1B; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 5v9M12 18v1' stroke='white' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.gear{ background:var(--blue-tint); border:1px solid #CFE0F2; }
+.gear h3{ font-size:1.25rem; color:#174F84; }
+.gear-grid{ list-style:none; margin:16px 0 0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.gear-grid li{ background:#fff; border-radius:16px; padding:18px 12px; text-align:center; display:grid; justify-items:center; gap:8px; font-weight:600; font-size:.95rem; color:#174F84; line-height:1.3; }
+.gear-grid svg{ width:48px; height:48px; color:var(--blue); }
+.safety-rule{
+  margin-top:22px; display:flex; gap:12px; align-items:flex-start; padding:16px 20px; border-radius:16px;
+  background:var(--green-ink); color:#fff; font-size:.98rem;
+}
+.safety-rule svg{ width:24px; height:24px; color:var(--gold); flex:none; margin-top:2px; }
+/* ============================================================
+   10 · QUESTIONS
+   ============================================================ */
+.faqs-wrap{ display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(24px, 5vw, 64px); align-items:start; }
+.faq-list{ display:grid; gap:12px; }
+.faq{ background:#fff; border:1px solid var(--line); border-radius:18px; }
+.faq summary{
+  list-style:none; cursor:pointer; padding:20px 56px 20px 22px; position:relative;
+  font-family:var(--font-head); font-weight:700; font-size:1.18rem; color:var(--green-ink); line-height:1.35;
+}
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{
+  content:"+"; position:absolute; right:18px; top:50%; transform:translateY(-50%);
+  width:30px; height:30px; border-radius:50%; display:grid; place-items:center;
+  background:var(--green-tint); color:var(--green-deep); font-size:1.3rem; font-family:"Noto Sans"; line-height:1;
+}
+.faq[open] summary::after{ content:"–"; background:var(--green); color:#fff; }
+.faq p{ padding:0 22px 22px; color:#3B4D40; }
+/* ============================================================
+   11 · REGISTER FOR THE TRIAL
+   ============================================================ */
+.register-grid{ display:grid; grid-template-columns:.75fr 1.25fr; gap:clamp(28px, 5vw, 64px); align-items:start; }
+.register-side{ position:sticky; top:calc(var(--header-h) + 80px); }
+.register-side img{ width:100%; height:auto; aspect-ratio:10/11; object-fit:cover; border-radius:28px; box-shadow:var(--shadow); }
+.register-help{ margin:-60px 18px 0; position:relative; background:#fff; border-radius:20px; padding:18px 22px; box-shadow:var(--shadow); }
+.register-help p{ color:var(--muted); font-size:.95rem; }
+.register-help a{ display:block; font-size:2rem; font-weight:800; color:var(--green-deep); text-decoration:none; line-height:1.2; }
+.register-help-sub{ font-weight:600; }
+
+.reg-form{ background:var(--green-mist); border:1px solid var(--line); border-radius:24px; padding:clamp(20px, 3vw, 32px); }
+.form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px 18px; }
+.field{ display:grid; gap:6px; margin:0; padding:0; border:0; min-width:0; }
+.field.wide{ grid-column:1 / -1; }
+.field-label{ font-weight:600; font-size:.98rem; color:var(--green-ink); padding:0; }
+.field-label i{ color:var(--red); font-style:normal; }
+.field input{
+  height:54px; padding:0 16px; border-radius:14px; border:1.5px solid #C9D6CB; background:#fff; font-size:1.05rem;
+  transition:border-color .2s, box-shadow .2s;
+}
+.field input:focus{ outline:none; border-color:var(--green); box-shadow:0 0 0 4px rgba(49,141,68,.15); }
+.field.invalid input{ border-color:var(--red); }
+.chips{ display:flex; flex-wrap:wrap; gap:8px; }
+.chip{ position:relative; }
+.chip input{ position:absolute; opacity:0; inset:0; cursor:pointer; }
+.chip span{
+  display:inline-flex; align-items:center; min-height:46px; padding:0 18px; border-radius:999px;
+  background:#fff; border:1.5px solid #C9D6CB; font-weight:500; cursor:pointer; transition:all .15s;
+}
+.chip input:checked + span{ background:var(--green); border-color:var(--green); color:#fff; }
+.chip input:focus-visible + span{ outline:3px solid var(--blue); outline-offset:2px; }
+.consent{ display:flex; gap:12px; align-items:flex-start; margin-top:20px; font-size:.95rem; color:#3B4D40; cursor:pointer; }
+.consent input{ width:24px; height:24px; accent-color:var(--green); flex:none; margin-top:2px; }
+.consent.invalid{ color:var(--red); }
+.form-error{ margin-top:14px; padding:12px 16px; border-radius:12px; background:var(--red-tint); color:#7A1B1B; font-weight:600; }
+.form-error [data-err]{ display:none; }
+.form-error.show-fields [data-err="fields"],
+.form-error.show-mobile [data-err="mobile"],
+.form-error.show-consent [data-err="consent"]{ display:block; }
+.btn-submit{ margin-top:22px; width:100%; min-height:58px; font-size:1.15rem; }
+
+.reg-done{ text-align:center; padding:40px 28px; border-radius:24px; background:var(--green-mist); border:1px solid var(--line); }
+.done-tick{ width:72px; height:72px; margin:0 auto 14px; border-radius:50%; background:var(--green); color:#fff; display:grid; place-items:center; }
+.done-tick svg{ width:40px; height:40px; }
+.reg-done h3{ font-size:1.8rem; }
+.reg-done p{ margin:8px auto 22px; max-width:28em; color:var(--muted); }
+/* ============================================================
+   12 · HELPLINE
+   ============================================================ */
+.helpline{ padding:0 0 clamp(64px, 8vw, 96px); }
+.helpline-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
+  padding:clamp(28px, 5vw, 52px); border-radius:32px; color:#fff;
+  background:
+    radial-gradient(600px 300px at 100% 0%, rgba(40,122,195,.45), transparent 70%),
+    linear-gradient(120deg, var(--green-deep), var(--green));
+}
+.helpline-kicker{ font-weight:600; color:#CFEBD5; }
+.helpline h2{ color:#fff; font-size:clamp(1.7rem, 3.4vw, 2.4rem); margin-top:6px; }
+.helpline-num{ display:block; margin-top:10px; font-size:clamp(2.6rem, 6vw, 4rem); font-weight:800; color:#fff; text-decoration:none; line-height:1.05; }
+.helpline-sub{ color:#CFEBD5; }
+.helpline-ctas{ display:flex; gap:12px; flex-wrap:wrap; }
+.btn-light{ background:#fff; color:var(--green-deep); }
+.btn-light:hover{ background:var(--green-tint); }
+/* ============================================================
+   13 · FOOTER
+   ============================================================ */
+.footer-brandbar{ background:#fff; border-top:1px solid var(--line); }
+.footer-brandbar-inner{ display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; padding:22px 0; }
+.footer-nu{ height:56px; width:auto; }
+.footer-brandbar p{ font-weight:600; color:var(--green-deep); }
+.site-footer{ background:var(--green-ink); color:#CFE0D3; font-size:.95rem; }
+.footer-grid{ display:grid; grid-template-columns:1.3fr .8fr 1.1fr .8fr 1.2fr; gap:28px; padding:52px 0 40px; }
+.footer-about img{ height:56px; width:auto; }
+.footer-about > p:first-of-type{ margin-top:16px; max-width:22em; }
+.footer-h{ color:#fff; font-weight:600; margin-bottom:10px; font-family:"Noto Sans", var(--font-body); }
+.footer-h-gap{ margin-top:22px; }
+.footer-about .footer-h{ margin-top:22px; }
+.footer-col{ display:flex; flex-direction:column; align-items:flex-start; }
+.footer-col a{ color:#CFE0D3; text-decoration:none; padding:4px 0; line-height:1.4; }
+.footer-col a:hover{ color:#fff; text-decoration:underline; }
+.footer-col address{ font-style:normal; line-height:1.6; }
+.footer-phone{ font-size:1.3rem; font-weight:700; color:#fff !important; }
+.socials{ display:flex; gap:10px; }
+.socials a{ width:40px; height:40px; border-radius:50%; display:grid; place-items:center; background:rgba(255,255,255,.1); color:#fff; transition:background .2s; }
+.socials a:hover{ background:var(--green); }
+.socials svg{ width:17px; height:17px; }
+.footer-base{ border-top:1px solid rgba(255,255,255,.12); }
+.footer-base-inner{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:18px 0; font-size:.88rem; color:#9DB8A3; }
+.footer-disclaimer{ flex-basis:100%; color:#9DB8A3; max-width:70em; }
+/* ============================================================
+   14 · STICKY ACTION BAR (phones only)
+   ============================================================ */
+.sticky-bar{ display:none; }
+/* ============================================================
+   ZZ · RESPONSIVE
+   Most farmers will open this on a phone, from a WhatsApp link.
+   ============================================================ */
+@media (max-width:1100px){
+  .nav a:not(.btn){ padding:10px 10px; font-size:.95rem; }
+  .footer-grid{ grid-template-columns:1fr 1fr 1fr; }
+  .footer-about{ grid-column:1 / -1; }
+}
+
+@media (max-width:960px){
+  :root{ --header-h:68px; }
+  .menu-btn{ display:block; }
+  .header-nav{
+    position:fixed; left:0; right:0; top:calc(var(--header-h) + 1px); bottom:0; z-index:60;
+    background:#fff; border-top:1px solid var(--line); overflow-y:auto;
+    transform:translateY(-8px); opacity:0; visibility:hidden; transition:all .25s ease;
+  }
+  body.menu-open .header-nav{ transform:none; opacity:1; visibility:visible; }
+  body.menu-open{ overflow:hidden; }
+  .nav{ flex-direction:column; align-items:stretch; gap:2px; padding:16px 0 40px; }
+  .nav a:not(.btn){ font-size:1.2rem; padding:16px 12px; border-bottom:1px solid var(--line); border-radius:0; }
+  .nav a.active::after{ display:none; }
+  .nav-group{ margin-left:0; }
+  .nav-cta{ margin-top:18px; min-height:56px; font-size:1.1rem; }
+
+  .hero-grid{ grid-template-columns:1fr; }
+  .hero-media{ max-width:520px; margin-inline:auto; width:100%; }
+  .facts-grid{ grid-template-columns:1fr 1fr; }
+  .fact:nth-child(2){ border-right:0; }
+  .fact:nth-child(-n+2){ border-bottom:1px solid var(--line); }
+  .what-grid, .results-grid, .safety-grid, .faqs-wrap, .register-grid, .how-top{ grid-template-columns:1fr; }
+  .what-media{ max-width:460px; }
+  .benefit-grid{ grid-template-columns:1fr 1fr; }
+  .steps{ grid-template-columns:1fr 1fr; }
+  .step:nth-child(2)::after{ display:none; }
+  .crop-grid{ grid-template-columns:1fr 1fr; }
+  .register-side{ position:static; display:none; }
+  .how-machine img{ margin-inline:auto; }
+  .how-machine figcaption{ text-align:center; }
+}
+
+@media (max-width:640px){
+  body{ font-size:17px; }
+  .wrap{ width:calc(100% - 32px); }
+  .strip{ font-size:.88rem; }
+  .strip-phone{ display:none; }
+  .brand img{ height:40px; }
+  .acme-logo img{ height:38px; }
+  .header-right{ gap:8px; }
+  .lang-btn{ height:40px; padding:0 12px; font-size:.9rem; }
+  .lang-btn svg{ display:none; }
+  .menu-btn{ width:42px; height:42px; padding:0 10px; }
+
+  .hero{ padding-top:28px; }
+  .hero-ctas .btn{ width:100%; }
+  .hero-trust{ border-radius:16px; }
+  .hero-media img{ border-radius:160px 160px 28px 28px; }
+  .hero-chip-n{ left:-6px; }
+  .hero-chip-once{ right:-6px; max-width:200px; font-size:.9rem; }
+  .facts{ margin-top:-48px; }
+  .fact{ padding:20px 16px; }
+
+  .benefit-grid{ grid-template-columns:1fr; }
+  .benefit{ display:grid; grid-template-columns:auto 1fr; gap:4px 16px; padding:20px; }
+  .benefit .icon-badge{ grid-row:span 2; width:52px; height:52px; }
+  .benefit h3{ margin-top:0; font-size:1.2rem; }
+  .benefit p{ margin-top:0; }
+
+  .cmp-row{ grid-template-columns:1fr 1fr 1fr; }
+  .cmp-row > span{ padding:14px 10px; font-size:.95rem; }
+  .cmp-head > span{ font-size:1rem; }
+  .cmp-head .cmp-nu img{ display:none; }
+  .cmp .big{ font-size:1.3rem; }
+
+  .steps{ grid-template-columns:1fr; }
+  .step{ display:grid; grid-template-columns:auto 1fr; gap:2px 16px; }
+  .step-icon{ grid-row:span 2; }
+  .step h3{ margin-top:0; }
+  .step::after{ display:none; }
+  .practices ul{ grid-template-columns:1fr; }
+
+  .bar{ grid-template-columns:96px 1fr 44px; gap:8px; }
+  .gear-grid li{ font-size:.88rem; }
+  .form-grid{ grid-template-columns:1fr; }
+  .helpline-ctas .btn{ flex:1; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .footer-col:last-child{ grid-column:1 / -1; }
+
+  /* Call, WhatsApp, Register: always one tap away */
+  .sticky-bar{
+    display:grid; grid-template-columns:1fr 1fr 1.2fr; position:fixed; left:0; right:0; bottom:0; z-index:40;
+    background:#fff; border-top:1px solid var(--line); box-shadow:0 -8px 24px -12px rgba(0,0,0,.2);
+    padding:8px 10px calc(8px + env(safe-area-inset-bottom)); gap:8px;
+  }
+  .sticky-bar a{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; min-height:54px;
+    border-radius:14px; text-decoration:none; font-weight:600; font-size:.85rem; color:var(--green-deep); background:var(--green-mist);
+  }
+  .sticky-bar svg{ width:22px; height:22px; }
+  .sticky-bar .sb-wa{ background:#1FA855; color:#fff; }
+  .sticky-bar .sb-reg{ background:var(--green); color:#fff; }
+  body{ padding-bottom:76px; }
+}
+
+@media (max-width:640px){
+  .hero-title em{ white-space:normal; }
+  html[data-lang="ta"] .hero-title{ font-size:2rem; }
+  html[data-lang="ta"] .section-title{ font-size:1.65rem; }
+}
+</style>
+</head>
+
+<body id="top">
+<!-- ============================================================
+     00 · LANGUAGE PICKER
+     Opens on a farmer's first visit, and again from the language
+     button. Each language is written in its own script so it can
+     be found without reading English.
+     ============================================================ -->
+<div class="lang-picker" id="langPicker" role="dialog" aria-modal="true" aria-labelledby="langPickerTitle" hidden>
+  <div class="lang-card">
+    <img class="lang-logo" src="assets/logos/navurvarak-logo.png" alt="ACME NavUrvarak" width="1708" height="587">
+    <h2 id="langPickerTitle" class="lang-title">
+      <span lang="en">Choose your language</span>
+      <span lang="hi">अपनी भाषा चुनें</span>
+      <span lang="or">ଆପଣଙ୍କ ଭାଷା ବାଛନ୍ତୁ</span>
+      <span lang="ta">உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்</span>
+    </h2>
+    <div class="lang-options">
+      <button type="button" data-set-lang="hi"><b lang="hi">हिन्दी</b><small>Hindi</small></button>
+      <button type="button" data-set-lang="or"><b lang="or">ଓଡ଼ିଆ</b><small>Odia</small></button>
+      <button type="button" data-set-lang="ta"><b lang="ta">தமிழ்</b><small>Tamil</small></button>
+      <button type="button" data-set-lang="en"><b>English</b><small>English</small></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     00a · ANNOUNCEMENT STRIP
+     ============================================================ -->
+<div class="strip">
+  <div class="wrap strip-inner">
+    <span class="strip-dot" aria-hidden="true"></span>
+    <p>
+      <span class="en">NavUrvarak field trials with ICAR, Rabi 2026-27. <a href="#register">Register your farm</a></span>
+      <span class="hi">ICAR के साथ नवउर्वरक फ़ील्ड ट्रायल, रबी 2026-27। <a href="#register">अपना खेत रजिस्टर करें</a></span>
+      <span class="or">ICAR ସହ ନବଉର୍ବରକ କ୍ଷେତ୍ର ପରୀକ୍ଷଣ, ରବି 2026-27। <a href="#register">ଆପଣଙ୍କ ଜମି ପଞ୍ଜୀକରଣ କରନ୍ତୁ</a></span>
+      <span class="ta">ICAR உடன் நவ்உர்வரக் வயல் சோதனை, ராபி 2026-27. <a href="#register">உங்கள் நிலத்தைப் பதிவு செய்யுங்கள்</a></span>
+    </p>
+    <a class="strip-phone" href="tel:+919732297322" aria-label="Call 97322-97322">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+      <span class="num">97322-97322</span>
+    </a>
+  </div>
+</div>
+
+<!-- ============================================================
+     00b · HEADER AND MENU
+     NavUrvarak top left, ACME Group top right (official file,
+     unaltered). The group site is also a menu item.
+     ============================================================ -->
+<header class="site-header">
+  <div class="wrap header-top">
+    <a class="brand" href="#top" aria-label="ACME NavUrvarak, home">
+      <img src="assets/logos/navurvarak-logo.png" alt="ACME NavUrvarak" width="1708" height="587">
+    </a>
+
+    <div class="header-right">
+      <button type="button" class="lang-btn" id="langBtn" aria-haspopup="dialog" aria-controls="langPicker">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-8.5 9h17M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg>
+        <span class="en">English</span><span class="hi">हिन्दी</span><span class="or">ଓଡ଼ିଆ</span><span class="ta">தமிழ்</span>
+      </button>
+      <a class="acme-logo" href="https://acme.in/" target="_blank" rel="noopener" aria-label="ACME Group website (opens in a new tab)">
+        <img src="assets/logos/acme-group-logo-official.svg" alt="ACME Group, Leading Through Innovation" width="137" height="87">
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="header-nav">
+    <nav class="wrap nav" id="nav" aria-label="Main">
+      <a href="#benefits"><span class="en">Benefits</span><span class="hi">फ़ायदे</span><span class="or">ଲାଭ</span><span class="ta">நன்மைகள்</span></a>
+      <a href="#how"><span class="en">How it's applied</span><span class="hi">कैसे डाली जाती है</span><span class="or">କିପରି ଦିଆଯାଏ</span><span class="ta">இடும் முறை</span></a>
+      <a href="#crops"><span class="en">Crops</span><span class="hi">फ़सलें</span><span class="or">ଫସଲ</span><span class="ta">பயிர்கள்</span></a>
+      <a href="#results"><span class="en">ICAR results</span><span class="hi">ICAR परिणाम</span><span class="or">ICAR ଫଳାଫଳ</span><span class="ta">ICAR முடிவுகள்</span></a>
+      <a href="#safety"><span class="en">Safety</span><span class="hi">सुरक्षा</span><span class="or">ସୁରକ୍ଷା</span><span class="ta">பாதுகாப்பு</span></a>
+      <a href="#faqs"><span class="en">Questions</span><span class="hi">सवाल-जवाब</span><span class="or">ପ୍ରଶ୍ନୋତ୍ତର</span><span class="ta">கேள்வி-பதில்</span></a>
+      <a class="nav-group" href="https://acme.in/" target="_blank" rel="noopener">
+        <span class="en">ACME Group</span><span class="hi">ACME ग्रुप</span><span class="or">ACME ଗ୍ରୁପ୍</span><span class="ta">ACME குழுமம்</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+      </a>
+      <a class="btn btn-primary nav-cta" href="#register"><span class="en">Register for the trial</span><span class="hi">ट्रायल के लिए रजिस्टर करें</span><span class="or">ପରୀକ୍ଷଣ ପାଇଁ ପଞ୍ଜୀକରଣ</span><span class="ta">சோதனைக்குப் பதிவு</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     01 · HERO
+     Headline from the approved standee. One clear next step:
+     register for the trial; WhatsApp and call sit beside it.
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">
+        <span class="en">New-technology nitrogen fertilizer</span>
+        <span class="hi">नई तकनीक की नाइट्रोजन खाद</span>
+        <span class="or">ନୂଆ ପ୍ରଯୁକ୍ତିର ନାଇଟ୍ରୋଜେନ୍ ସାର</span>
+        <span class="ta">புதிய தொழில்நுட்ப நைட்ரஜன் உரம்</span>
+      </p>
+      <h1 class="hero-title">
+        <span class="en">Less fertilizer.<br>More nitrogen.<br><em>Better crop.</em></span>
+        <span class="hi">कम खाद,<br>ज़्यादा नाइट्रोजन,<br><em>बेहतर फ़सल</em></span>
+        <span class="or">କମ୍ ସାର,<br>ଅଧିକ ନାଇଟ୍ରୋଜେନ୍,<br><em>ଭଲ ଫସଲ</em></span>
+        <span class="ta">குறைந்த உரம்,<br>அதிக நைட்ரஜன்,<br><em>சிறந்த விளைச்சல்</em></span>
+      </h1>
+      <p class="hero-sub">
+        <span class="en">NavUrvarak contains 82% nitrogen; urea has 46%. It is placed near the roots, and one application can cover the whole season.</span>
+        <span class="hi">नवउर्वरक में 82% नाइट्रोजन है, यूरिया में 46%। यह जड़ों के पास डाली जाती है, और एक बार डालना पूरे मौसम के लिए काफ़ी हो सकता है।</span>
+        <span class="or">ନବଉର୍ବରକରେ 82% ନାଇଟ୍ରୋଜେନ୍ ଅଛି, ୟୁରିଆରେ 46%। ଏହାକୁ ଚେର ପାଖରେ ଦିଆଯାଏ, ଏବଂ ଥରେ ଦେବା ପୂରା ଋତୁ ପାଇଁ ଯଥେଷ୍ଟ ହୋଇପାରେ।</span>
+        <span class="ta">நவ்உர்வரக்கில் 82% நைட்ரஜன் உள்ளது, யூரியாவில் 46%. இது வேர்களின் அருகே இடப்படுகிறது, ஒரு முறை இடுவதே முழு பருவத்துக்கும் போதுமானதாக இருக்கலாம்.</span>
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#register">
+          <span class="en">Register for the trial</span><span class="hi">ट्रायल के लिए रजिस्टर करें</span><span class="or">ପରୀକ୍ଷଣ ପାଇଁ ପଞ୍ଜୀକରଣ କରନ୍ତୁ</span><span class="ta">சோதனைக்குப் பதிவு செய்யுங்கள்</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-wa" data-wa href="https://wa.me/919732297322" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.7.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+          <span class="en">WhatsApp us</span><span class="hi">व्हाट्सएप्प करें</span><span class="or">ହ୍ୱାଟସଆପ୍ କରନ୍ତୁ</span><span class="ta">வாட்ஸ்அப் செய்யுங்கள்</span>
+        </a>
+      </div>
+      <p class="hero-call">
+        <span class="en">or call</span><span class="hi">या कॉल करें</span><span class="or">କିମ୍ବା କଲ୍ କରନ୍ତୁ</span><span class="ta">அல்லது அழையுங்கள்</span>
+        <a class="num" href="tel:+919732297322">97322-97322</a>
+      </p>
+      <p class="hero-trust">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 14.2-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3z"/></svg>
+        <span class="en">Tested with ICAR on Indian farms</span>
+        <span class="hi">ICAR के साथ भारतीय खेतों में परीक्षित</span>
+        <span class="or">ICAR ସହ ଭାରତୀୟ ଜମିରେ ପରୀକ୍ଷିତ</span>
+        <span class="ta">ICAR உடன் இந்திய வயல்களில் சோதிக்கப்பட்டது</span>
+      </p>
+    </div>
+
+    <figure class="hero-media">
+      <img src="assets/img/hero-farmer.jpg" width="1000" height="1180" alt="A smiling farmer carries bundles of freshly harvested rice on his shoulder." fetchpriority="high">
+      <div class="hero-chip hero-chip-n">
+        <span class="chip-big num">82%</span>
+        <span class="chip-label"><span class="en">nitrogen</span><span class="hi">नाइट्रोजन</span><span class="or">ନାଇଟ୍ରୋଜେନ୍</span><span class="ta">நைட்ரஜன்</span></span>
+        <span class="chip-vs"><span class="en">Urea: 46%</span><span class="hi">यूरिया: 46%</span><span class="or">ୟୁରିଆ: 46%</span><span class="ta">யூரியா: 46%</span></span>
+      </div>
+      <div class="hero-chip hero-chip-once">
+        <span class="chip-icon" aria-hidden="true">1×</span>
+        <span><span class="en">One application, season-long nutrition</span><span class="hi">एक बार डालें, पूरे मौसम का पोषण</span><span class="or">ଥରେ ଦିଅନ୍ତୁ, ପୂରା ଋତୁର ପୋଷଣ</span><span class="ta">ஒரு முறை இட்டால், பருவம் முழுவதும் ஊட்டம்</span></span>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 · QUICK FACTS
+     Four numbers a farmer can repeat to a neighbour.
+     ============================================================ -->
+<section class="facts" aria-label="NavUrvarak in numbers">
+  <div class="wrap facts-grid">
+    <div class="fact reveal">
+      <p class="fact-num num">82%</p>
+      <p class="fact-label"><span class="en">nitrogen in NavUrvarak</span><span class="hi">नवउर्वरक में नाइट्रोजन</span><span class="or">ନବଉର୍ବରକରେ ନାଇଟ୍ରୋଜେନ୍</span><span class="ta">நவ்உர்வரக்கில் நைட்ரஜன்</span></p>
+      <p class="fact-vs"><span class="en">Urea has only 46%</span><span class="hi">यूरिया में सिर्फ़ 46%</span><span class="or">ୟୁରିଆରେ କେବଳ 46%</span><span class="ta">யூரியாவில் 46% மட்டுமே</span></p>
+    </div>
+    <div class="fact reveal">
+      <p class="fact-num num">1×</p>
+      <p class="fact-label"><span class="en">application in the season</span><span class="hi">पूरे मौसम में एक बार</span><span class="or">ପୂରା ଋତୁରେ ଥରେ</span><span class="ta">பருவத்தில் ஒரே முறை</span></p>
+      <p class="fact-vs"><span class="en">Urea is usually applied 2–4 times</span><span class="hi">यूरिया आमतौर पर 2–4 बार</span><span class="or">ୟୁରିଆ ସାଧାରଣତଃ 2–4 ଥର</span><span class="ta">யூரியா பொதுவாக 2–4 முறை</span></p>
+    </div>
+    <div class="fact reveal">
+      <p class="fact-num num"><span class="en">15 cm</span><span class="hi">15 सेमी</span><span class="or">15 ସେମି</span><span class="ta">15 செ.மீ.</span></p>
+      <p class="fact-label"><span class="en">deep, close to the roots</span><span class="hi">गहराई पर, जड़ों के पास</span><span class="or">ଗଭୀରରେ, ଚେର ପାଖରେ</span><span class="ta">ஆழத்தில், வேர்களின் அருகே</span></p>
+      <p class="fact-vs"><span class="en">Placed inside the soil by machine</span><span class="hi">मशीन से मिट्टी के अंदर</span><span class="or">ଯନ୍ତ୍ର ଦ୍ୱାରା ମାଟି ଭିତରେ</span><span class="ta">இயந்திரம் மூலம் மண்ணுக்குள்</span></p>
+    </div>
+    <div class="fact reveal">
+      <p class="fact-num num">4</p>
+      <p class="fact-label"><span class="en">ICAR research centres tested it</span><span class="hi">ICAR अनुसंधान केंद्रों में परीक्षण</span><span class="or">ICAR ଗବେଷଣା କେନ୍ଦ୍ରରେ ପରୀକ୍ଷଣ</span><span class="ta">ICAR ஆராய்ச்சி மையங்களில் சோதனை</span></p>
+      <p class="fact-vs"><span class="en">Bhopal · Cuttack · Modipuram · Lucknow</span><span class="hi">भोपाल · कटक · मोदीपुरम · लखनऊ</span><span class="or">ଭୋପାଳ · କଟକ · ମୋଦୀପୁରମ୍ · ଲକ୍ଷ୍ନୌ</span><span class="ta">போபால் · கட்டாக் · மோதிபுரம் · லக்னோ</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     03 · WHAT IS NAVURVARAK
+     ============================================================ -->
+<section class="section what" id="what">
+  <div class="wrap what-grid">
+    <figure class="what-media reveal">
+      <img src="assets/img/farmer-happy.jpg" width="900" height="1100" loading="lazy" alt="A smiling woman farmer shakes water from a bundle of rice seedlings in a green field.">
+    </figure>
+    <div class="what-copy reveal">
+      <p class="eyebrow"><span class="en">What is NavUrvarak?</span><span class="hi">नवउर्वरक क्या है?</span><span class="or">ନବଉର୍ବରକ କ'ଣ?</span><span class="ta">நவ்உர்வரக் என்றால் என்ன?</span></p>
+      <h2 class="section-title">
+        <span class="en">Rich nitrogen, placed where the roots are</span>
+        <span class="hi">भरपूर नाइट्रोजन, वहीं जहाँ जड़ें हैं</span>
+        <span class="or">ଭରପୂର ନାଇଟ୍ରୋଜେନ୍, ଯେଉଁଠି ଚେର ଅଛି ସେଇଠି</span>
+        <span class="ta">நிறைந்த நைட்ரஜன், வேர்கள் இருக்கும் இடத்திலேயே</span>
+      </h2>
+      <p class="section-lead">
+        <span class="en">NavUrvarak is liquid ammonia, one of the richest sources of nitrogen, with about 82% nitrogen. A trained team uses a special machine to place it inside the soil at a set depth, close to the roots. In the soil it turns into ammonium, which holds on to the soil. So your crop keeps getting nitrogen for a long time.</span>
+        <span class="hi">नवउर्वरक तरल अमोनिया है, नाइट्रोजन के सबसे सघन स्रोतों में से एक, जिसमें लगभग 82% नाइट्रोजन होती है। प्रशिक्षित टीम विशेष मशीन से इसे मिट्टी के अंदर तय गहराई पर, जड़ों के पास डालती है। मिट्टी में यह अमोनियम में बदल जाती है, जो मिट्टी से चिपकी रहती है। इसलिए फ़सल को लंबे समय तक नाइट्रोजन मिलती रहती है।</span>
+        <span class="or">ନବଉର୍ବରକ ହେଉଛି ତରଳ ଆମୋନିଆ, ନାଇଟ୍ରୋଜେନର ସବୁଠାରୁ ଘନ ଉତ୍ସଗୁଡ଼ିକ ମଧ୍ୟରୁ ଗୋଟିଏ, ଯେଉଁଥିରେ ପ୍ରାୟ 82% ନାଇଟ୍ରୋଜେନ୍ ଥାଏ। ତାଲିମପ୍ରାପ୍ତ ଦଳ ବିଶେଷ ଯନ୍ତ୍ର ସାହାଯ୍ୟରେ ଏହାକୁ ମାଟି ଭିତରେ ନିର୍ଦ୍ଦିଷ୍ଟ ଗଭୀରତାରେ, ଚେର ପାଖରେ ଦିଅନ୍ତି। ମାଟିରେ ଏହା ଆମୋନିୟମରେ ବଦଳିଯାଏ, ଯାହା ମାଟିରେ ଲାଗି ରହେ। ତେଣୁ ଫସଲ ଦୀର୍ଘ ସମୟ ଧରି ନାଇଟ୍ରୋଜେନ୍ ପାଉଥାଏ।</span>
+        <span class="ta">நவ்உர்வரக் என்பது திரவ அம்மோனியா. இது நைட்ரஜனின் மிகச் செறிவான ஆதாரங்களில் ஒன்று, இதில் சுமார் 82% நைட்ரஜன் உள்ளது. பயிற்சி பெற்ற குழு சிறப்பு இயந்திரம் மூலம் இதை மண்ணுக்குள் குறிப்பிட்ட ஆழத்தில், வேர்களின் அருகே இடுகிறது. மண்ணில் இது அம்மோனியமாக மாறி மண்ணுடன் ஒட்டிக்கொள்கிறது. அதனால் பயிருக்கு நீண்ட நாட்கள் நைட்ரஜன் கிடைத்துக்கொண்டே இருக்கிறது.</span>
+      </p>
+      <div class="name-card">
+        <p class="name-split" aria-hidden="true"><b class="nav-blue">Nav</b><b class="urv-green">Urvarak</b></p>
+        <p>
+          <span class="en"><b>Nav</b> means new. <b>Urvarak</b> means fertilizer. A new generation of fertilizer, in a word farmers already trust.</span>
+          <span class="hi"><b>नव</b> यानी नया, <b>उर्वरक</b> यानी खाद। नई पीढ़ी की खाद, उस शब्द में जिस पर किसान पहले से भरोसा करते हैं।</span>
+          <span class="or"><b>ନବ</b> ଅର୍ଥ ନୂଆ, <b>ଉର୍ବରକ</b> ଅର୍ଥ ସାର। ନୂଆ ପିଢ଼ିର ସାର, ଏପରି ଏକ ଶବ୍ଦରେ ଯାହାକୁ କୃଷକ ଆଗରୁ ବିଶ୍ୱାସ କରନ୍ତି।</span>
+          <span class="ta"><b>நவ்</b> என்றால் புதிய, <b>உர்வரக்</b> என்றால் உரம். விவசாயிகள் ஏற்கனவே நம்பும் ஒரு சொல்லில், புதிய தலைமுறை உரம்.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     04 · BENEFITS
+     Six cards: an icon, a short title and one line each.
+     ============================================================ -->
+<section class="section section-tint benefits" id="benefits">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow"><span class="en">Benefits for the farmer</span><span class="hi">किसान को फ़ायदा</span><span class="or">କୃଷକଙ୍କୁ ଲାଭ</span><span class="ta">விவசாயிக்கு நன்மைகள்</span></p>
+      <h2 class="section-title"><span class="en">What NavUrvarak does for your crop</span><span class="hi">नवउर्वरक आपकी फ़सल के लिए क्या करती है</span><span class="or">ନବଉର୍ବରକ ଆପଣଙ୍କ ଫସଲ ପାଇଁ କ'ଣ କରେ</span><span class="ta">நவ்உர்வரக் உங்கள் பயிருக்கு என்ன செய்கிறது</span></h2>
+    </div>
+
+    <div class="benefit-grid">
+      <article class="benefit reveal">
+        <div class="icon-badge"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M11 22V10l10 12V10" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <h3><span class="en">More nitrogen in every kilo</span><span class="hi">हर किलो में ज़्यादा नाइट्रोजन</span><span class="or">ପ୍ରତି କିଲୋରେ ଅଧିକ ନାଇଟ୍ରୋଜେନ୍</span><span class="ta">ஒவ்வொரு கிலோவிலும் அதிக நைட்ரஜன்</span></h3>
+        <p><span class="en">82%, against 46% in urea. Less is needed for the same crop.</span><span class="hi">82%, यूरिया में 46%। उतनी ही फ़सल के लिए कम खाद।</span><span class="or">82%, ୟୁରିଆରେ 46%। ସମାନ ଫସଲ ପାଇଁ କମ୍ ସାର ଦରକାର।</span><span class="ta">82%, யூரியாவில் 46%. அதே பயிருக்குக் குறைந்த அளவே போதும்.</span></p>
+      </article>
+      <article class="benefit reveal">
+        <div class="icon-badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3v10M16 13c-3 0-6 2-7 6M16 13c3 0 6 2 7 6M16 13v9M12 26c1-2 2-3 4-4 2 1 3 2 4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M3 11h26" stroke="currentColor" stroke-width="2.2" stroke-dasharray="2 3" stroke-linecap="round"/></svg></div>
+        <h3><span class="en">Straight to the roots</span><span class="hi">सीधे जड़ों तक</span><span class="or">ସିଧା ଚେର ପର୍ଯ୍ୟନ୍ତ</span><span class="ta">நேரடியாக வேர்களுக்கு</span></h3>
+        <p><span class="en">Placed inside the soil near the roots, not spread on top.</span><span class="hi">मिट्टी के अंदर, जड़ों के पास डाली जाती है, ऊपर नहीं बिखेरी जाती।</span><span class="or">ମାଟି ଭିତରେ ଚେର ପାଖରେ ଦିଆଯାଏ, ଉପରେ ବିଞ୍ଚାଯାଏ ନାହିଁ।</span><span class="ta">மண்ணின் மேல் தூவப்படாமல், மண்ணுக்குள் வேர்களின் அருகே இடப்படுகிறது.</span></p>
+      </article>
+      <article class="benefit reveal">
+        <div class="icon-badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 12h14a4 4 0 1 0-4-4M4 18h20a4 4 0 1 1-4 4M4 24h8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M24 6l4 4M28 6l-4 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+        <h3><span class="en">Less lost to the air</span><span class="hi">हवा में कम नुकसान</span><span class="or">ପବନରେ କମ୍ କ୍ଷତି</span><span class="ta">காற்றில் குறைந்த இழப்பு</span></h3>
+        <p><span class="en">Placed inside the soil, less nitrogen escapes than from urea left on the surface.</span><span class="hi">मिट्टी के अंदर डालने से, ऊपर बिखरे यूरिया की तुलना में कम नाइट्रोजन उड़ती है।</span><span class="or">ମାଟି ଭିତରେ ଦେବାରୁ, ଉପରେ ବିଞ୍ଚା ୟୁରିଆ ତୁଳନାରେ କମ୍ ନାଇଟ୍ରୋଜେନ୍ ଉଡ଼ିଯାଏ।</span><span class="ta">மண்ணுக்குள் இடப்படுவதால், மேலே தூவும் யூரியாவை விடக் குறைவான நைட்ரஜனே காற்றில் வீணாகிறது.</span></p>
+      </article>
+      <article class="benefit reveal">
+        <div class="icon-badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 10h26M3 10v16h26V10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="10" cy="17" r="1.8" fill="currentColor"/><circle cx="17" cy="21" r="1.8" fill="currentColor"/><circle cx="23" cy="16" r="1.8" fill="currentColor"/><circle cx="13" cy="23" r="1.4" fill="currentColor"/><path d="M16 9V3M13 6l3-3 3 3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3><span class="en">Stays in the soil longer</span><span class="hi">मिट्टी में ज़्यादा देर टिकती है</span><span class="or">ମାଟିରେ ଅଧିକ ସମୟ ରହେ</span><span class="ta">மண்ணில் நீண்ட நாள் நிலைக்கும்</span></h3>
+        <p><span class="en">It turns into ammonium, which clings to the soil, so less washes away.</span><span class="hi">अमोनियम बनकर मिट्टी से चिपकी रहती है, इसलिए कम बहती है।</span><span class="or">ଆମୋନିୟମ ହୋଇ ମାଟିରେ ଲାଗି ରହେ, ତେଣୁ କମ୍ ଧୋଇହୁଏ।</span><span class="ta">அம்மோனியமாக மாறி மண்ணுடன் ஒட்டிக்கொள்வதால், குறைவாகவே அடித்துச் செல்லப்படுகிறது.</span></p>
+      </article>
+      <article class="benefit reveal">
+        <div class="icon-badge"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="24" height="22" rx="3" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M4 12h24M10 3v6M22 3v6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M11 20l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3><span class="en">One application, season-long nutrition</span><span class="hi">एक बार डालें, पूरे मौसम का पोषण</span><span class="or">ଥରେ ଦିଅନ୍ତୁ, ପୂରା ଋତୁର ପୋଷଣ</span><span class="ta">ஒரு முறை இட்டால், பருவம் முழுவதும் ஊட்டம்</span></h3>
+        <p><span class="en">Fewer trips to the field, and less labour.</span><span class="hi">खेत के कम चक्कर, कम मज़दूरी।</span><span class="or">ଜମିକୁ କମ୍ ଯିବା ଆସିବା, କମ୍ ମଜୁରି।</span><span class="ta">வயலுக்குக் குறைவான பயணங்கள், குறைவான கூலி.</span></p>
+      </article>
+      <article class="benefit reveal">
+        <div class="icon-badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 21V9h16v12M18 13h6l5 5v3h-27" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="8" cy="24" r="3" fill="#fff" stroke="currentColor" stroke-width="2.2"/><circle cx="23" cy="24" r="3" fill="#fff" stroke="currentColor" stroke-width="2.2"/></svg></div>
+        <h3><span class="en">Less to carry and store</span><span class="hi">कम ढुलाई, कम भंडारण</span><span class="or">କମ୍ ବୋହିବା, କମ୍ ସାଇତିବା</span><span class="ta">குறைவான சுமை, குறைவான சேமிப்பு</span></h3>
+        <p><span class="en">Less weight to transport and store for the same nitrogen.</span><span class="hi">उतनी ही नाइट्रोजन के लिए कम वज़न ढोना और रखना पड़ता है।</span><span class="or">ସମାନ ନାଇଟ୍ରୋଜେନ୍ ପାଇଁ କମ୍ ଓଜନ ବୋହିବାକୁ ଓ ସାଇତିବାକୁ ପଡ଼େ।</span><span class="ta">அதே நைட்ரஜனுக்கு குறைந்த எடையையே கொண்டு செல்லவும் சேமிக்கவும் வேண்டும்.</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     05 · NAVURVARAK OR UREA
+     Figures as printed on the approved leaflet and standee.
+     ============================================================ -->
+<section class="section compare" id="compare">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow"><span class="en">Side by side</span><span class="hi">आमने-सामने</span><span class="or">ପାଖାପାଖି ତୁଳନା</span><span class="ta">நேருக்கு நேர்</span></p>
+      <h2 class="section-title"><span class="en">NavUrvarak or urea?</span><span class="hi">नवउर्वरक या यूरिया?</span><span class="or">ନବଉର୍ବରକ ନା ୟୁରିଆ?</span><span class="ta">நவ்உர்வரக்கா, யூரியாவா?</span></h2>
+    </div>
+
+    <div class="cmp reveal" role="table" aria-label="NavUrvarak compared with urea">
+      <div class="cmp-row cmp-head" role="row">
+        <span role="columnheader"></span>
+        <span role="columnheader" class="cmp-nu"><img src="assets/favicon.svg" alt="" width="28" height="28"> <span class="en">NavUrvarak</span><span class="hi">नवउर्वरक</span><span class="or">ନବଉର୍ବରକ</span><span class="ta">நவ்உர்வரக்</span></span>
+        <span role="columnheader" class="cmp-urea"><span class="en">Urea</span><span class="hi">यूरिया</span><span class="or">ୟୁରିଆ</span><span class="ta">யூரியா</span></span>
+      </div>
+      <div class="cmp-row" role="row">
+        <span role="rowheader"><span class="en">Nitrogen content</span><span class="hi">नाइट्रोजन की मात्रा</span><span class="or">ନାଇଟ୍ରୋଜେନ୍ ପରିମାଣ</span><span class="ta">நைட்ரஜன் அளவு</span></span>
+        <span role="cell" class="cmp-nu num big">82%</span>
+        <span role="cell" class="cmp-urea num big">46%</span>
+      </div>
+      <div class="cmp-row" role="row">
+        <span role="rowheader"><span class="en">Applications</span><span class="hi">कितनी बार</span><span class="or">କେତେ ଥର</span><span class="ta">எத்தனை முறை</span></span>
+        <span role="cell" class="cmp-nu"><span class="en">Usually once</span><span class="hi">आमतौर पर एक बार</span><span class="or">ସାଧାରଣତଃ ଥରେ</span><span class="ta">பொதுவாக ஒரு முறை</span></span>
+        <span role="cell" class="cmp-urea"><span class="en">2–4 times</span><span class="hi">2–4 बार</span><span class="or">2–4 ଥର</span><span class="ta">2–4 முறை</span></span>
+      </div>
+      <div class="cmp-row" role="row">
+        <span role="rowheader"><span class="en">How it goes in</span><span class="hi">कैसे डालते हैं</span><span class="or">କିପରି ଦିଆଯାଏ</span><span class="ta">எப்படி இடப்படுகிறது</span></span>
+        <span role="cell" class="cmp-nu"><span class="en">Injected into the soil</span><span class="hi">मिट्टी के अंदर</span><span class="or">ମାଟି ଭିତରେ</span><span class="ta">மண்ணுக்குள்</span></span>
+        <span role="cell" class="cmp-urea"><span class="en">Spread on top</span><span class="hi">ऊपर से छिड़काव</span><span class="or">ଉପରୁ ବିଞ୍ଚା</span><span class="ta">மேலே தூவுதல்</span></span>
+      </div>
+      <div class="cmp-row" role="row">
+        <span role="rowheader"><span class="en">Loss to the air</span><span class="hi">हवा में नुकसान</span><span class="or">ପବନରେ କ୍ଷତି</span><span class="ta">காற்றில் இழப்பு</span></span>
+        <span role="cell" class="cmp-nu"><span class="en">Low, when injected correctly</span><span class="hi">कम, सही तरीके से डालने पर</span><span class="or">କମ୍, ଠିକ୍ ଭାବେ ଦେଲେ</span><span class="ta">குறைவு, சரியாக இட்டால்</span></span>
+        <span role="cell" class="cmp-urea"><span class="en">Higher, especially in heat</span><span class="hi">ज़्यादा, ख़ासकर गर्मी में</span><span class="or">ଅଧିକ, ବିଶେଷକରି ଗରମରେ</span><span class="ta">அதிகம், குறிப்பாக வெப்பத்தில்</span></span>
+      </div>
+    </div>
+    <p class="cmp-note"><span class="en">Based on ACME product information and ICAR trials so far.</span><span class="hi">ACME की उत्पाद जानकारी और अब तक के ICAR ट्रायल पर आधारित।</span><span class="or">ACMEର ଉତ୍ପାଦ ସୂଚନା ଓ ଏଯାବତ୍ ICAR ପରୀକ୍ଷଣ ଉପରେ ଆଧାରିତ।</span><span class="ta">ACME தயாரிப்புத் தகவல் மற்றும் இதுவரையிலான ICAR சோதனைகளின் அடிப்படையில்.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     06 · HOW IT'S APPLIED
+     The leaflet's four steps, then its good practices.
+     ============================================================ -->
+<section class="section section-tint how" id="how">
+  <div class="wrap">
+    <div class="how-top">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="en">How it's applied</span><span class="hi">कैसे डाली जाती है</span><span class="or">କିପରି ଦିଆଯାଏ</span><span class="ta">எப்படி இடப்படுகிறது</span></p>
+        <h2 class="section-title"><span class="en">Four steps, done by a trained team</span><span class="hi">चार कदम, प्रशिक्षित टीम द्वारा</span><span class="or">ଚାରି ପଦକ୍ଷେପ, ତାଲିମପ୍ରାପ୍ତ ଦଳ ଦ୍ୱାରା</span><span class="ta">நான்கு படிகள், பயிற்சி பெற்ற குழுவால்</span></h2>
+      </div>
+      <figure class="how-machine reveal">
+        <img src="assets/img/applicator.webp" width="900" height="781" loading="lazy" alt="The NavUrvarak applicator: a tractor carrying ammonia cylinders and soil injectors.">
+        <figcaption><span class="en">The NavUrvarak applicator</span><span class="hi">नवउर्वरक एप्लीकेटर</span><span class="or">ନବଉର୍ବରକ ଆପ୍ଲିକେଟର</span><span class="ta">நவ்உர்வரக் அப்ளிகேட்டர்</span></figcaption>
+      </figure>
+    </div>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="step-n num">1</span>
+        <svg class="step-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="15" y="10" width="18" height="34" rx="7" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M20 10V5h8v5M15 22h18" fill="none" stroke="currentColor" stroke-width="2.6"/></svg>
+        <h3><span class="en">Ammonia cylinder</span><span class="hi">अमोनिया सिलिंडर</span><span class="or">ଆମୋନିଆ ସିଲିଣ୍ଡର</span><span class="ta">அம்மோனியா சிலிண்டர்</span></h3>
+        <p><span class="en">Liquid ammonia comes in sealed cylinders.</span><span class="hi">तरल अमोनिया बंद सिलिंडरों में आती है।</span><span class="or">ତରଳ ଆମୋନିଆ ବନ୍ଦ ସିଲିଣ୍ଡରରେ ଆସେ।</span><span class="ta">திரவ அம்மோனியா மூடிய சிலிண்டர்களில் வருகிறது.</span></p>
+      </li>
+      <li class="step reveal">
+        <span class="step-n num">2</span>
+        <svg class="step-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="22" r="14" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M24 22l7-6M15 30h18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M24 36v8M16 44h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+        <h3><span class="en">Pressure and flow control</span><span class="hi">प्रेशर / फ़्लो नियंत्रण</span><span class="or">ଚାପ / ପ୍ରବାହ ନିୟନ୍ତ୍ରଣ</span><span class="ta">அழுத்தம் / ஓட்டக் கட்டுப்பாடு</span></h3>
+        <p><span class="en">The dose is set before work begins.</span><span class="hi">काम शुरू होने से पहले मात्रा तय की जाती है।</span><span class="or">କାମ ଆରମ୍ଭ ପୂର୍ବରୁ ମାତ୍ରା ସ୍ଥିର କରାଯାଏ।</span><span class="ta">வேலை தொடங்கும் முன் அளவு அமைக்கப்படுகிறது.</span></p>
+      </li>
+      <li class="step reveal">
+        <span class="step-n num">3</span>
+        <svg class="step-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 30V18h14l4 6h12v6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><circle cx="14" cy="34" r="7" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="35" cy="36" r="5" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M36 30h6v4M40 34v8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+        <h3><span class="en">Injector on the tractor</span><span class="hi">इंजेक्टर / एप्लीकेटर</span><span class="or">ଇଞ୍ଜେକ୍ଟର / ଆପ୍ଲିକେଟର</span><span class="ta">இன்ஜெக்டர் / அப்ளிகேட்டர்</span></h3>
+        <p><span class="en">A calibrated machine places it evenly across the field.</span><span class="hi">कैलिब्रेटेड मशीन पूरे खेत में बराबर डालती है।</span><span class="or">କ୍ୟାଲିବ୍ରେଟେଡ୍ ଯନ୍ତ୍ର ପୂରା ଜମିରେ ସମାନ ଭାବେ ଦିଏ।</span><span class="ta">அளவீடு செய்யப்பட்ட இயந்திரம் வயல் முழுவதும் சமமாக இடுகிறது.</span></p>
+      </li>
+      <li class="step reveal">
+        <span class="step-n num">4</span>
+        <svg class="step-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 18h40" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M24 18V6M24 6c-4 0-7 2-8 5M24 6c4 0 7 2 8 5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M14 26c0 2 1 4 2 4s2-2 2-4l-2-4zM30 30c0 2 1 4 2 4s2-2 2-4l-2-4zM22 36c0 2 1 4 2 4s2-2 2-4l-2-4z" fill="currentColor"/></svg>
+        <h3><span class="en">Into the soil</span><span class="hi">मिट्टी में इंजेक्शन</span><span class="or">ମାଟିରେ ଇଞ୍ଜେକ୍ସନ୍</span><span class="ta">மண்ணுக்குள் செலுத்துதல்</span></h3>
+        <p><span class="en">About 15 cm deep, where the roots will grow.</span><span class="hi">लगभग 15 सेमी गहराई पर, जहाँ जड़ें बढ़ेंगी।</span><span class="or">ପ୍ରାୟ 15 ସେମି ଗଭୀରରେ, ଯେଉଁଠି ଚେର ବଢ଼ିବ।</span><span class="ta">சுமார் 15 செ.மீ. ஆழத்தில், வேர்கள் வளரும் இடத்தில்.</span></p>
+      </li>
+    </ol>
+
+    <div class="practices reveal">
+      <h3><span class="en">For the best result</span><span class="hi">सबसे अच्छे नतीजे के लिए</span><span class="or">ସବୁଠାରୁ ଭଲ ଫଳ ପାଇଁ</span><span class="ta">சிறந்த பலனுக்கு</span></h3>
+      <ul>
+        <li><span class="en">The soil should be moist, about 20–23% moisture.</span><span class="hi">मिट्टी नम होनी चाहिए, लगभग 20–23% नमी।</span><span class="or">ମାଟି ଓଦା ଥିବା ଦରକାର, ପ୍ରାୟ 20–23% ଆର୍ଦ୍ରତା।</span><span class="ta">மண் ஈரமாக இருக்க வேண்டும், சுமார் 20–23% ஈரப்பதம்.</span></li>
+        <li><span class="en">Sow 10–15 days after it is applied.</span><span class="hi">डालने के 10–15 दिन बाद बुवाई करें।</span><span class="or">ଦେବାର 10–15 ଦିନ ପରେ ବୁଣନ୍ତୁ।</span><span class="ta">இட்ட 10–15 நாட்களுக்குப் பிறகு விதைக்கவும்.</span></li>
+        <li><span class="en">Use only an approved, calibrated machine.</span><span class="hi">केवल अनुमोदित, कैलिब्रेटेड मशीन का उपयोग करें।</span><span class="or">କେବଳ ଅନୁମୋଦିତ, କ୍ୟାଲିବ୍ରେଟେଡ୍ ଯନ୍ତ୍ର ବ୍ୟବହାର କରନ୍ତୁ।</span><span class="ta">அங்கீகரிக்கப்பட்ட, அளவீடு செய்யப்பட்ட இயந்திரத்தை மட்டும் பயன்படுத்துங்கள்.</span></li>
+        <li><span class="en">Apply only the nitrogen dose recommended for your crop.</span><span class="hi">अपनी फ़सल के लिए अनुशंसित नाइट्रोजन मात्रा ही डालें।</span><span class="or">ଆପଣଙ୍କ ଫସଲ ପାଇଁ ସୁପାରିଶ ହୋଇଥିବା ନାଇଟ୍ରୋଜେନ୍ ମାତ୍ରା ହିଁ ଦିଅନ୍ତୁ।</span><span class="ta">உங்கள் பயிருக்குப் பரிந்துரைக்கப்பட்ட நைட்ரஜன் அளவையே இடுங்கள்.</span></li>
+        <li><span class="en">Some crops may need a small urea top-up mid-season (about 25%), where advised.</span><span class="hi">कुछ फ़सलों को बीच मौसम में थोड़ा यूरिया (लगभग 25%) चाहिए हो सकता है, जहाँ सलाह दी जाए।</span><span class="or">କେତେକ ଫସଲକୁ ଋତୁ ମଝିରେ ଅଳ୍ପ ୟୁରିଆ (ପ୍ରାୟ 25%) ଦରକାର ହୋଇପାରେ, ଯେଉଁଠି ପରାମର୍ଶ ଦିଆଯାଏ।</span><span class="ta">சில பயிர்களுக்குப் பருவத்தின் நடுவில் சிறிது யூரியா (சுமார் 25%) தேவைப்படலாம், பரிந்துரைக்கப்பட்டால் மட்டும்.</span></li>
+        <li><span class="en">Watch the wind and the weather on the day.</span><span class="hi">उस दिन हवा की दिशा और मौसम का ध्यान रखें।</span><span class="or">ସେଦିନ ପବନର ଦିଗ ଓ ପାଣିପାଗ ଉପରେ ନଜର ରଖନ୍ତୁ।</span><span class="ta">அன்று காற்றின் திசையையும் வானிலையையும் கவனியுங்கள்.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     07 · CROPS
+     ============================================================ -->
+<section class="section crops" id="crops">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow"><span class="en">Crops</span><span class="hi">फ़सलें</span><span class="or">ଫସଲ</span><span class="ta">பயிர்கள்</span></p>
+      <h2 class="section-title"><span class="en">Suitable crops</span><span class="hi">उपयुक्त फ़सलें</span><span class="or">ଉପଯୁକ୍ତ ଫସଲ</span><span class="ta">பொருத்தமான பயிர்கள்</span></h2>
+      <p class="section-lead"><span class="en">Best on fields a tractor can reach.</span><span class="hi">उन खेतों के लिए सबसे अच्छी, जहाँ ट्रैक्टर पहुँच सके।</span><span class="or">ଯେଉଁ ଜମିକୁ ଟ୍ରାକ୍ଟର ପହଞ୍ଚିପାରେ, ସେଠାରେ ସବୁଠାରୁ ଭଲ।</span><span class="ta">டிராக்டர் செல்லக்கூடிய வயல்களுக்கு மிகவும் ஏற்றது.</span></p>
+    </div>
+    <div class="crop-grid">
+      <figure class="crop reveal"><img src="assets/img/crop-wheat.jpg" width="800" height="1000" loading="lazy" alt="Ripe golden wheat against a blue sky"><figcaption><span class="en">Wheat</span><span class="hi">गेहूँ</span><span class="or">ଗହମ</span><span class="ta">கோதுமை</span></figcaption></figure>
+      <figure class="crop reveal"><img src="assets/img/crop-paddy.jpg" width="800" height="1000" loading="lazy" alt="Close view of green rice grains on the plant"><figcaption><span class="en">Paddy</span><span class="hi">धान</span><span class="or">ଧାନ</span><span class="ta">நெல்</span></figcaption></figure>
+      <figure class="crop reveal"><img src="assets/img/crop-maize.jpg" width="800" height="1000" loading="lazy" alt="Three yellow maize cobs on the soil"><figcaption><span class="en">Maize</span><span class="hi">मक्का</span><span class="or">ମକା</span><span class="ta">மக்காச்சோளம்</span></figcaption></figure>
+      <figure class="crop reveal"><img src="assets/img/crop-sugarcane.jpg" width="800" height="1000" loading="lazy" alt="Bundles of harvested sugarcane"><figcaption><span class="en">Sugarcane</span><span class="hi">गन्ना</span><span class="or">ଆଖୁ</span><span class="ta">கரும்பு</span></figcaption></figure>
+    </div>
+    <p class="crops-also reveal"><span class="en">Also cotton and other crops.</span><span class="hi">कपास और अन्य फ़सलें भी।</span><span class="or">କପା ଓ ଅନ୍ୟ ଫସଲ ମଧ୍ୟ।</span><span class="ta">பருத்தி மற்றும் பிற பயிர்களுக்கும்.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     08 · ICAR RESULTS
+     Rabi 2025-26 half-yearly report figures, as in the leaflet.
+     "Prayogshala se kisan tak" is the positioning note's primary
+     line for farmer-facing material.
+     ============================================================ -->
+<section class="section results" id="results">
+  <div class="wrap">
+    <div class="results-head reveal">
+      <p class="eyebrow eyebrow-light"><span class="en">Trial results</span><span class="hi">ट्रायल के नतीजे</span><span class="or">ପରୀକ୍ଷଣ ଫଳାଫଳ</span><span class="ta">சோதனை முடிவுகள்</span></p>
+      <h2 class="section-title"><span class="en">Tested on real Indian farms, with ICAR</span><span class="hi">असली भारतीय खेतों में, ICAR के साथ परखा गया</span><span class="or">ପ୍ରକୃତ ଭାରତୀୟ ଜମିରେ, ICAR ସହ ପରୀକ୍ଷିତ</span><span class="ta">உண்மையான இந்திய வயல்களில், ICAR உடன் சோதிக்கப்பட்டது</span></h2>
+      <p class="results-line">
+        <span class="hi-line" lang="hi">प्रयोगशाला से किसान तक</span>
+        <span class="en">From the research lab to the farmer's field.</span>
+        <span class="or">ଗବେଷଣାଗାରରୁ କୃଷକଙ୍କ ଜମି ପର୍ଯ୍ୟନ୍ତ।</span>
+        <span class="ta">ஆய்வகத்திலிருந்து விவசாயியின் வயல் வரை.</span>
+      </p>
+      <p class="results-lead">
+        <span class="en">Since November 2025, ACME and ICAR have tested NavUrvarak against urea on wheat, rice and sugarcane at four research centres. These are the Rabi 2025-26 half-year results.</span>
+        <span class="hi">नवंबर 2025 से ACME और ICAR चार अनुसंधान केंद्रों पर गेहूँ, धान और गन्ने में नवउर्वरक की तुलना यूरिया से कर रहे हैं। ये रबी 2025-26 के छमाही नतीजे हैं।</span>
+        <span class="or">ନଭେମ୍ବର 2025 ଠାରୁ ACME ଓ ICAR ଚାରିଟି ଗବେଷଣା କେନ୍ଦ୍ରରେ ଗହମ, ଧାନ ଓ ଆଖୁରେ ନବଉର୍ବରକକୁ ୟୁରିଆ ସହ ତୁଳନା କରୁଛନ୍ତି। ଏଗୁଡ଼ିକ ରବି 2025-26ର ଅର୍ଦ୍ଧବାର୍ଷିକ ଫଳାଫଳ।</span>
+        <span class="ta">நவம்பர் 2025 முதல் ACME மற்றும் ICAR நான்கு ஆராய்ச்சி மையங்களில் கோதுமை, நெல், கரும்பு பயிர்களில் நவ்உர்வரக்கை யூரியாவுடன் ஒப்பிட்டுச் சோதித்து வருகின்றன. இவை ராபி 2025-26 அரையாண்டு முடிவுகள்.</span>
+      </p>
+    </div>
+
+    <div class="results-grid">
+      <div class="chart-card reveal">
+        <p class="chart-big"><span class="en">Up to <b class="num">20%</b> more wheat</span><span class="hi"><b class="num">20%</b> तक ज़्यादा गेहूँ</span><span class="or"><b class="num">20%</b> ପର୍ଯ୍ୟନ୍ତ ଅଧିକ ଗହମ</span><span class="ta"><b class="num">20%</b> வரை அதிக கோதுமை</span></p>
+        <p class="chart-title"><span class="en">Wheat grain yield, tonnes per hectare</span><span class="hi">गेहूँ की उपज, टन प्रति हेक्टेयर</span><span class="or">ଗହମ ଅମଳ, ହେକ୍ଟର ପିଛା ଟନ୍</span><span class="ta">கோதுமை விளைச்சல், ஹெக்டேருக்கு டன்</span></p>
+
+        <div class="bars" data-max="5.5">
+          <p class="bars-site">ICAR-IISS, <span class="en">Bhopal</span><span class="hi">भोपाल</span><span class="or">ଭୋପାଳ</span><span class="ta">போபால்</span></p>
+          <div class="bar bar-urea" style="--v:4.12"><span class="bar-label"><span class="en">Urea</span><span class="hi">यूरिया</span><span class="or">ୟୁରିଆ</span><span class="ta">யூரியா</span></span><span class="bar-fill"></span><b class="num">4.12</b></div>
+          <div class="bar bar-nu" style="--v:4.95"><span class="bar-label"><span class="en">NavUrvarak</span><span class="hi">नवउर्वरक</span><span class="or">ନବଉର୍ବରକ</span><span class="ta">நவ்உர்வரக்</span></span><span class="bar-fill"></span><b class="num">4.95</b></div>
+
+          <p class="bars-site">ICAR-IIFSR, <span class="en">Modipuram</span><span class="hi">मोदीपुरम</span><span class="or">ମୋଦୀପୁରମ୍</span><span class="ta">மோதிபுரம்</span></p>
+          <div class="bar bar-urea" style="--v:4.51"><span class="bar-label"><span class="en">Urea</span><span class="hi">यूरिया</span><span class="or">ୟୁରିଆ</span><span class="ta">யூரியா</span></span><span class="bar-fill"></span><b class="num">4.51</b></div>
+          <div class="bar bar-nu" style="--v:4.76"><span class="bar-label"><span class="en">NavUrvarak</span><span class="hi">नवउर्वरक</span><span class="or">ନବଉର୍ବରକ</span><span class="ta">நவ்உர்வரக்</span></span><span class="bar-fill"></span><b class="num">4.76</b></div>
+        </div>
+      </div>
+
+      <ul class="highlights">
+        <li class="reveal"><h3><span class="en">Stronger, greener wheat</span><span class="hi">मज़बूत, हरा-भरा गेहूँ</span><span class="or">ମଜବୁତ, ସବୁଜ ଗହମ</span><span class="ta">வலுவான, பசுமையான கோதுமை</span></h3><p><span class="en">Taller plants, more tillers, greener leaves.</span><span class="hi">ऊँचे पौधे, ज़्यादा कल्ले, ज़्यादा हरी पत्तियाँ।</span><span class="or">ଉଚ୍ଚା ଗଛ, ଅଧିକ ଶାଖା, ଅଧିକ ସବୁଜ ପତ୍ର।</span><span class="ta">உயரமான செடிகள், அதிக தூர்கள், அதிக பச்சை இலைகள்.</span></p></li>
+        <li class="reveal"><h3><span class="en">Paddy as good as urea</span><span class="hi">धान में यूरिया जितनी अच्छी</span><span class="or">ଧାନରେ ୟୁରିଆ ସହ ସମାନ</span><span class="ta">நெல்லில் யூரியாவுக்கு இணை</span></h3><p><span class="en">At Cuttack it matched urea, with slightly earlier germination.</span><span class="hi">कटक में यूरिया के बराबर नतीजे, और अंकुरण थोड़ा जल्दी।</span><span class="or">କଟକରେ ୟୁରିଆ ସହ ସମାନ ଫଳ, ଆଉ ଗଜା ଟିକେ ଆଗରୁ।</span><span class="ta">கட்டாக்கில் யூரியாவுக்கு இணையான முடிவு, சற்று முன்னதாக முளைப்பு.</span></p></li>
+        <li class="reveal"><h3><span class="en">Better sugarcane growth</span><span class="hi">गन्ने की बेहतर बढ़त</span><span class="or">ଆଖୁର ଭଲ ବୃଦ୍ଧି</span><span class="ta">கரும்பின் சிறந்த வளர்ச்சி</span></h3><p><span class="en">At Lucknow, up to 20% more shoot growth and stronger roots.</span><span class="hi">लखनऊ में 20% तक ज़्यादा तने की बढ़त और मज़बूत जड़ें।</span><span class="or">ଲକ୍ଷ୍ନୌରେ 20% ପର୍ଯ୍ୟନ୍ତ ଅଧିକ କାଣ୍ଡ ବୃଦ୍ଧି ଓ ମଜବୁତ ଚେର।</span><span class="ta">லக்னோவில் 20% வரை அதிகத் தண்டு வளர்ச்சி, வலுவான வேர்கள்.</span></p></li>
+        <li class="reveal"><h3><span class="en">More life in the soil</span><span class="hi">मिट्टी में ज़्यादा जान</span><span class="or">ମାଟିରେ ଅଧିକ ଜୀବନ</span><span class="ta">மண்ணில் அதிக உயிரோட்டம்</span></h3><p><span class="en">Higher soil enzyme and microbial activity.</span><span class="hi">मिट्टी में एंज़ाइम और सूक्ष्मजीवों की गतिविधि बढ़ी।</span><span class="or">ମାଟିରେ ଏନଜାଇମ୍ ଓ ଅଣୁଜୀବଙ୍କ କାର୍ଯ୍ୟକଳାପ ବଢ଼ିଲା।</span><span class="ta">மண்ணில் நொதி மற்றும் நுண்ணுயிர் செயல்பாடு அதிகரித்தது.</span></p></li>
+        <li class="reveal"><h3><span class="en">Ammonia loss is short-lived</span><span class="hi">अमोनिया का नुकसान थोड़े समय का</span><span class="or">ଆମୋନିଆ କ୍ଷତି ଅଳ୍ପ ସମୟର</span><span class="ta">அம்மோனியா இழப்பு குறுகிய காலமே</span></h3><p><span class="en">Highest on day one, and not detected after 7 days, when injected at 15 cm.</span><span class="hi">पहले दिन सबसे ज़्यादा, 7 दिन बाद पता नहीं चला, जब 15 सेमी गहराई पर डाली गई।</span><span class="or">ପ୍ରଥମ ଦିନ ସବୁଠାରୁ ଅଧିକ, 7 ଦିନ ପରେ ଧରାପଡ଼ିଲା ନାହିଁ, ଯେତେବେଳେ 15 ସେମି ଗଭୀରରେ ଦିଆଗଲା।</span><span class="ta">முதல் நாளில் அதிகம், 7 நாட்களுக்குப் பிறகு கண்டறியப்படவில்லை, 15 செ.மீ. ஆழத்தில் இட்டபோது.</span></p></li>
+      </ul>
+    </div>
+
+    <div class="season reveal">
+      <div>
+        <p class="season-tag"><span class="en">This Rabi, 2026-27</span><span class="hi">इस रबी, 2026-27</span><span class="or">ଏହି ରବି, 2026-27</span><span class="ta">இந்த ராபி, 2026-27</span></p>
+        <p class="season-text"><span class="en">Field trials grow to <b>10 ICAR and agricultural university centres</b> in <b>10 states</b>, over <b>5,000 hectares</b>.</span><span class="hi"><b>10 राज्यों</b> में <b>10 ICAR और कृषि विश्वविद्यालय केंद्र</b>, <b>5,000 हेक्टेयर</b> में फ़ील्ड ट्रायल।</span><span class="or"><b>10ଟି ରାଜ୍ୟରେ</b> <b>10ଟି ICAR ଓ କୃଷି ବିଶ୍ୱବିଦ୍ୟାଳୟ କେନ୍ଦ୍ର</b>, <b>5,000 ହେକ୍ଟରରେ</b> କ୍ଷେତ୍ର ପରୀକ୍ଷଣ।</span><span class="ta"><b>10 மாநிலங்களில்</b> <b>10 ICAR மற்றும் வேளாண் பல்கலைக்கழக மையங்கள்</b>, <b>5,000 ஹெக்டேரில்</b> வயல் சோதனை.</span></p>
+      </div>
+      <a class="btn btn-primary" href="#register"><span class="en">Register your farm</span><span class="hi">अपना खेत रजिस्टर करें</span><span class="or">ଆପଣଙ୍କ ଜମି ପଞ୍ଜୀକରଣ କରନ୍ତୁ</span><span class="ta">உங்கள் நிலத்தைப் பதிவு செய்யுங்கள்</span></a>
+    </div>
+
+    <p class="results-note"><span class="en">Results vary with crop, soil, moisture and how well it is applied. Trials continue, and Kharif results will follow.</span><span class="hi">नतीजे फ़सल, मिट्टी, नमी और डालने के तरीके पर निर्भर करते हैं। ट्रायल जारी हैं, खरीफ़ के नतीजे आगे आएँगे।</span><span class="or">ଫଳାଫଳ ଫସଲ, ମାଟି, ଆର୍ଦ୍ରତା ଓ ଦେବା ପଦ୍ଧତି ଉପରେ ନିର୍ଭର କରେ। ପରୀକ୍ଷଣ ଜାରି ଅଛି, ଖରିଫ ଫଳାଫଳ ପରେ ଆସିବ।</span><span class="ta">முடிவுகள் பயிர், மண், ஈரப்பதம், இடும் முறை ஆகியவற்றைப் பொறுத்து மாறும். சோதனைகள் தொடர்கின்றன, காரீஃப் முடிவுகள் பின்னர் வரும்.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     09 · SAFETY
+     Liquid ammonia is hazardous. Said plainly, near the top of
+     the page's second half, in the only red on the site.
+     ============================================================ -->
+<section class="section safety" id="safety">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow eyebrow-red"><span class="en">Safety first</span><span class="hi">सुरक्षा सबसे पहले</span><span class="or">ସୁରକ୍ଷା ସର୍ବପ୍ରଥମ</span><span class="ta">பாதுகாப்பே முதன்மை</span></p>
+      <h2 class="section-title"><span class="en">Only a trained team applies NavUrvarak</span><span class="hi">नवउर्वरक केवल प्रशिक्षित टीम ही डालती है</span><span class="or">ନବଉର୍ବରକ କେବଳ ତାଲିମପ୍ରାପ୍ତ ଦଳ ହିଁ ଦିଅନ୍ତି</span><span class="ta">நவ்உர்வரக்கைப் பயிற்சி பெற்ற குழு மட்டுமே இடுகிறது</span></h2>
+      <p class="section-lead"><span class="en">Liquid ammonia needs careful handling. That is why only a trained team, with the right machine and safety gear, applies it on your field.</span><span class="hi">तरल अमोनिया को सावधानी से संभालना ज़रूरी है। इसीलिए इसे केवल प्रशिक्षित टीम, सही मशीन और सुरक्षा उपकरणों के साथ आपके खेत में डालती है।</span><span class="or">ତରଳ ଆମୋନିଆକୁ ସାବଧାନତାର ସହ ସମ୍ଭାଳିବା ଜରୁରୀ। ସେଥିପାଇଁ କେବଳ ତାଲିମପ୍ରାପ୍ତ ଦଳ, ଠିକ୍ ଯନ୍ତ୍ର ଓ ସୁରକ୍ଷା ଉପକରଣ ସହ ଏହାକୁ ଆପଣଙ୍କ ଜମିରେ ଦିଅନ୍ତି।</span><span class="ta">திரவ அம்மோனியாவைக் கவனமாகக் கையாள வேண்டும். அதனால்தான் பயிற்சி பெற்ற குழு மட்டுமே, சரியான இயந்திரம் மற்றும் பாதுகாப்பு உபகரணங்களுடன் உங்கள் வயலில் இதை இடுகிறது.</span></p>
+    </div>
+
+    <div class="safety-grid">
+      <div class="rules reveal">
+        <h3><span class="en">Never</span><span class="hi">ये कभी न करें</span><span class="or">ଏସବୁ କେବେ କରନ୍ତୁ ନାହିଁ</span><span class="ta">இவற்றை ஒருபோதும் செய்யாதீர்கள்</span></h3>
+        <ul class="rule-list rule-no">
+          <li><span class="en">Open a tank, pipe, valve or injector yourself.</span><span class="hi">टैंक, पाइप, वाल्व या इंजेक्टर ख़ुद न खोलें।</span><span class="or">ଟାଙ୍କି, ପାଇପ୍, ଭଲଭ୍ କିମ୍ବା ଇଞ୍ଜେକ୍ଟର ନିଜେ ଖୋଲନ୍ତୁ ନାହିଁ।</span><span class="ta">டேங்க், குழாய், வால்வு அல்லது இன்ஜெக்டரை நீங்களே திறக்காதீர்கள்.</span></li>
+          <li><span class="en">Touch or go near the ammonia.</span><span class="hi">अमोनिया के संपर्क में न आएँ।</span><span class="or">ଆମୋନିଆ ସଂସ୍ପର୍ଶରେ ଆସନ୍ତୁ ନାହିଁ।</span><span class="ta">அம்மோனியாவைத் தொடாதீர்கள், அருகில் செல்லாதீர்கள்.</span></li>
+          <li><span class="en">Leave ammonia open on the surface.</span><span class="hi">अमोनिया को सतह पर खुला न छोड़ें।</span><span class="or">ଆମୋନିଆକୁ ଉପରେ ଖୋଲା ଛାଡ଼ନ୍ତୁ ନାହିଁ।</span><span class="ta">அம்மோனியாவை மண்ணின் மேல் திறந்த நிலையில் விடாதீர்கள்.</span></li>
+          <li><span class="en">Use it with ordinary farm equipment.</span><span class="hi">सामान्य कृषि उपकरण से इसका प्रयोग न करें।</span><span class="or">ସାଧାରଣ କୃଷି ଯନ୍ତ୍ରରେ ଏହାକୁ ବ୍ୟବହାର କରନ୍ତୁ ନାହିଁ।</span><span class="ta">சாதாரண விவசாயக் கருவிகளில் இதைப் பயன்படுத்தாதீர்கள்.</span></li>
+        </ul>
+
+        <h3><span class="en">If something goes wrong</span><span class="hi">अगर कुछ गड़बड़ हो</span><span class="or">ଯଦି କିଛି ଭୁଲ ହୁଏ</span><span class="ta">ஏதேனும் தவறு நடந்தால்</span></h3>
+        <ul class="rule-list rule-act">
+          <li><span class="en"><b>Leak:</b> leave the area at once and tell the trained team or emergency services.</span><span class="hi"><b>रिसाव:</b> तुरंत जगह खाली करें और प्रशिक्षित टीम या आपातकालीन सहायता को सूचित करें।</span><span class="or"><b>ଲିକ୍:</b> ତୁରନ୍ତ ସେ ସ୍ଥାନ ଛାଡ଼ନ୍ତୁ ଓ ତାଲିମପ୍ରାପ୍ତ ଦଳ କିମ୍ବା ଜରୁରୀକାଳୀନ ସହାୟତାକୁ ଜଣାନ୍ତୁ।</span><span class="ta"><b>கசிவு:</b> உடனே அந்த இடத்தை விட்டு வெளியேறி, பயிற்சி பெற்ற குழுவிடம் அல்லது அவசர உதவிக்குத் தெரிவியுங்கள்.</span></li>
+          <li><span class="en"><b>Eyes or skin:</b> wash at once with plenty of clean water and see a doctor.</span><span class="hi"><b>आँख या त्वचा पर:</b> तुरंत भरपूर साफ़ पानी से धोएँ और डॉक्टर को दिखाएँ।</span><span class="or"><b>ଆଖି କିମ୍ବା ଚର୍ମରେ:</b> ତୁରନ୍ତ ପ୍ରଚୁର ସଫା ପାଣିରେ ଧୁଅନ୍ତୁ ଓ ଡାକ୍ତର ଦେଖାନ୍ତୁ।</span><span class="ta"><b>கண் அல்லது தோலில்:</b> உடனே நிறைய சுத்தமான நீரில் கழுவி மருத்துவரைப் பாருங்கள்.</span></li>
+        </ul>
+      </div>
+
+      <div class="gear reveal">
+        <h3><span class="en">The team always wears</span><span class="hi">टीम हमेशा पहनती है</span><span class="or">ଦଳ ସର୍ବଦା ପିନ୍ଧେ</span><span class="ta">குழு எப்போதும் அணிவது</span></h3>
+        <ul class="gear-grid">
+          <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 20h40v6c0 5-4 8-9 8s-8-4-9-7h-4c-1 3-4 7-9 7s-9-3-9-8z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M4 20l3-6M44 20l-3-6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg><span class="en">Safety glasses</span><span class="hi">सुरक्षा चश्मा</span><span class="or">ସୁରକ୍ଷା ଚଷମା</span><span class="ta">பாதுகாப்புக் கண்ணாடி</span></li>
+          <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 44V26l-5-7a2.5 2.5 0 0 1 4-3l4 5V8a2.5 2.5 0 0 1 5 0v12V5a2.5 2.5 0 0 1 5 0v15V8a2.5 2.5 0 0 1 5 0v13-8a2.5 2.5 0 0 1 5 0v17c0 6-3 10-6 14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg><span class="en">Protective gloves</span><span class="hi">सुरक्षा दस्ताने</span><span class="or">ସୁରକ୍ଷା ଦସ୍ତାନା</span><span class="ta">பாதுகாப்புக் கையுறை</span></li>
+          <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M18 4h12l2 4 10 6-4 10-4-2v22H14V22l-4 2-4-10 10-6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M24 8v36" stroke="currentColor" stroke-width="2.2"/></svg><span class="en">Safety suit</span><span class="hi">सुरक्षात्मक कपड़े</span><span class="or">ସୁରକ୍ଷା ପୋଷାକ</span><span class="ta">பாதுகாப்பு உடை</span></li>
+          <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 18c0-8 6-12 14-12s14 4 14 12v8c0 8-6 14-14 14s-14-6-14-14z" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="16" cy="32" r="5" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="32" cy="32" r="5" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M17 20h14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg><span class="en">Mask / respirator</span><span class="hi">श्वसन सुरक्षा मास्क</span><span class="or">ଶ୍ୱାସ ସୁରକ୍ଷା ମାସ୍କ</span><span class="ta">சுவாசப் பாதுகாப்பு முகமூடி</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="safety-rule reveal">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 1 21h22L12 2zm1 15h-2v-2h2v2zm0-4h-2V9h2v4z"/></svg>
+      <span><span class="en">Liquid ammonia is corrosive and hazardous. It must be applied only by trained operators, with approved equipment, under the applicable government and farm safety rules.</span><span class="hi">तरल अमोनिया अत्यधिक संक्षारक एवं ख़तरनाक पदार्थ है। इसका उपयोग केवल प्रशिक्षित ऑपरेटर द्वारा, उपयुक्त एवं प्रमाणित उपकरण तथा लागू सरकारी/कृषि सुरक्षा नियमों के अनुसार ही किया जाना चाहिए।</span><span class="or">ତରଳ ଆମୋନିଆ ଅତ୍ୟଧିକ କ୍ଷୟକାରୀ ଓ ବିପଜ୍ଜନକ ପଦାର୍ଥ। ଏହା କେବଳ ତାଲିମପ୍ରାପ୍ତ ଅପରେଟରଙ୍କ ଦ୍ୱାରା, ପ୍ରମାଣିତ ଉପକରଣ ସହ ଓ ପ୍ରଯୁଜ୍ୟ ସରକାରୀ/କୃଷି ସୁରକ୍ଷା ନିୟମ ଅନୁସାରେ ହିଁ ବ୍ୟବହାର କରାଯିବା ଉଚିତ।</span><span class="ta">திரவ அம்மோனியா அரிக்கும் தன்மையுடைய, ஆபத்தான பொருள். இது பயிற்சி பெற்ற இயக்குநர்களால், அங்கீகரிக்கப்பட்ட உபகரணங்களுடன், பொருந்தும் அரசு/வேளாண் பாதுகாப்பு விதிகளின்படி மட்டுமே பயன்படுத்தப்பட வேண்டும்.</span></span>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     10 · QUESTIONS FARMERS ASK
+     Answers drawn only from the leaflet, sitemap and standee.
+     ============================================================ -->
+<section class="section section-tint faqs" id="faqs">
+  <div class="wrap faqs-wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="en">Questions</span><span class="hi">सवाल-जवाब</span><span class="or">ପ୍ରଶ୍ନୋତ୍ତର</span><span class="ta">கேள்வி-பதில்</span></p>
+      <h2 class="section-title"><span class="en">Questions farmers ask</span><span class="hi">किसानों के सवाल</span><span class="or">କୃଷକଙ୍କ ପ୍ରଶ୍ନ</span><span class="ta">விவசாயிகளின் கேள்விகள்</span></h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq reveal" open>
+        <summary><span class="en">Can I apply NavUrvarak myself?</span><span class="hi">क्या मैं नवउर्वरक ख़ुद डाल सकता हूँ?</span><span class="or">ମୁଁ ନିଜେ ନବଉର୍ବରକ ଦେଇପାରିବି କି?</span><span class="ta">நவ்உர்வரக்கை நானே இடலாமா?</span></summary>
+        <p><span class="en">No. Only a trained team, with the right machine and safety gear, applies it. You do not need to handle it.</span><span class="hi">नहीं। इसे केवल प्रशिक्षित टीम, सही मशीन और सुरक्षा उपकरणों के साथ डालती है। आपको इसे छूने की ज़रूरत नहीं।</span><span class="or">ନା। କେବଳ ତାଲିମପ୍ରାପ୍ତ ଦଳ ଠିକ୍ ଯନ୍ତ୍ର ଓ ସୁରକ୍ଷା ଉପକରଣ ସହ ଏହାକୁ ଦିଅନ୍ତି। ଆପଣଙ୍କୁ ଏହାକୁ ଛୁଇଁବାର ଆବଶ୍ୟକତା ନାହିଁ।</span><span class="ta">இல்லை. பயிற்சி பெற்ற குழு மட்டுமே சரியான இயந்திரம் மற்றும் பாதுகாப்பு உபகரணங்களுடன் இதை இடுகிறது. நீங்கள் இதைக் கையாள வேண்டியதில்லை.</span></p>
+      </details>
+      <details class="faq reveal">
+        <summary><span class="en">When can I sow after it is applied?</span><span class="hi">डालने के बाद बुवाई कब करूँ?</span><span class="or">ଦେବା ପରେ କେବେ ବୁଣିବି?</span><span class="ta">இட்ட பிறகு எப்போது விதைக்கலாம்?</span></summary>
+        <p><span class="en">10 to 15 days after, so the ammonia can turn into a form the plants can use.</span><span class="hi">10 से 15 दिन बाद, ताकि अमोनिया पौधों के काम आने वाले रूप में बदल जाए।</span><span class="or">10 ରୁ 15 ଦିନ ପରେ, ଯାହାଦ୍ୱାରା ଆମୋନିଆ ଗଛ ବ୍ୟବହାର କରିପାରୁଥିବା ରୂପରେ ବଦଳିଯାଏ।</span><span class="ta">10 முதல் 15 நாட்களுக்குப் பிறகு. அதற்குள் அம்மோனியா பயிர் பயன்படுத்தக்கூடிய வடிவத்துக்கு மாறிவிடும்.</span></p>
+      </details>
+      <details class="faq reveal">
+        <summary><span class="en">Will I still need urea?</span><span class="hi">क्या फिर भी यूरिया चाहिए होगा?</span><span class="or">ମୋତେ ତଥାପି ୟୁରିଆ ଦରକାର ହେବ କି?</span><span class="ta">எனக்கு இன்னும் யூரியா தேவைப்படுமா?</span></summary>
+        <p><span class="en">Often one application is enough for the season. Some crops may need a small urea top-up (about 25%) mid-season, if the team advises it.</span><span class="hi">अक्सर एक बार डालना पूरे मौसम के लिए काफ़ी होता है। कुछ फ़सलों में बीच मौसम में थोड़ा यूरिया (लगभग 25%) चाहिए हो सकता है, अगर टीम सलाह दे।</span><span class="or">ଅନେକ ସମୟରେ ଥରେ ଦେବା ପୂରା ଋତୁ ପାଇଁ ଯଥେଷ୍ଟ। କେତେକ ଫସଲରେ ଋତୁ ମଝିରେ ଅଳ୍ପ ୟୁରିଆ (ପ୍ରାୟ 25%) ଦରକାର ହୋଇପାରେ, ଯଦି ଦଳ ପରାମର୍ଶ ଦିଏ।</span><span class="ta">பெரும்பாலும் ஒரு முறை இடுவதே பருவம் முழுவதற்கும் போதும். சில பயிர்களுக்குப் பருவத்தின் நடுவில் சிறிது யூரியா (சுமார் 25%) தேவைப்படலாம், குழு பரிந்துரைத்தால்.</span></p>
+      </details>
+      <details class="faq reveal">
+        <summary><span class="en">Is it right for my field?</span><span class="hi">क्या यह मेरे खेत के लिए सही है?</span><span class="or">ଏହା ମୋ ଜମି ପାଇଁ ଠିକ୍ କି?</span><span class="ta">இது என் வயலுக்கு ஏற்றதா?</span></summary>
+        <p><span class="en">It works best on fields a tractor can reach, growing wheat, paddy, maize, sugarcane, cotton or similar crops, with moist soil at the time of application.</span><span class="hi">यह उन खेतों में सबसे अच्छा काम करती है जहाँ ट्रैक्टर पहुँच सके, जहाँ गेहूँ, धान, मक्का, गन्ना, कपास जैसी फ़सलें हों, और डालते समय मिट्टी नम हो।</span><span class="or">ଯେଉଁ ଜମିକୁ ଟ୍ରାକ୍ଟର ପହଞ୍ଚିପାରେ, ଯେଉଁଠି ଗହମ, ଧାନ, ମକା, ଆଖୁ, କପା ଭଳି ଫସଲ ହୁଏ, ଓ ଦେବା ସମୟରେ ମାଟି ଓଦା ଥାଏ, ସେଠାରେ ଏହା ସବୁଠାରୁ ଭଲ କାମ କରେ।</span><span class="ta">டிராக்டர் செல்லக்கூடிய, கோதுமை, நெல், மக்காச்சோளம், கரும்பு, பருத்தி போன்ற பயிர்கள் விளையும், இடும் நேரத்தில் மண் ஈரமாக இருக்கும் வயல்களில் இது சிறப்பாகச் செயல்படும்.</span></p>
+      </details>
+      <details class="faq reveal">
+        <summary><span class="en">Who tested it?</span><span class="hi">इसका परीक्षण किसने किया?</span><span class="or">ଏହାର ପରୀକ୍ଷଣ କିଏ କଲେ?</span><span class="ta">இதை யார் சோதித்தார்கள்?</span></summary>
+        <p><span class="en">ICAR, the Indian Council of Agricultural Research, has tested it with ACME since November 2025 at Bhopal, Cuttack, Modipuram and Lucknow.</span><span class="hi">भारतीय कृषि अनुसंधान परिषद (ICAR) नवंबर 2025 से ACME के साथ भोपाल, कटक, मोदीपुरम और लखनऊ में इसका परीक्षण कर रही है।</span><span class="or">ଭାରତୀୟ କୃଷି ଗବେଷଣା ପରିଷଦ (ICAR) ନଭେମ୍ବର 2025 ଠାରୁ ACME ସହ ଭୋପାଳ, କଟକ, ମୋଦୀପୁରମ୍ ଓ ଲକ୍ଷ୍ନୌରେ ଏହାର ପରୀକ୍ଷଣ କରୁଛି।</span><span class="ta">இந்திய வேளாண் ஆராய்ச்சிக் கழகம் (ICAR) நவம்பர் 2025 முதல் ACME உடன் போபால், கட்டாக், மோதிபுரம், லக்னோவில் இதைச் சோதித்து வருகிறது.</span></p>
+      </details>
+      <details class="faq reveal">
+        <summary><span class="en">How do I join the trial?</span><span class="hi">ट्रायल से कैसे जुड़ूँ?</span><span class="or">ପରୀକ୍ଷଣରେ କିପରି ଯୋଗ ଦେବି?</span><span class="ta">சோதனையில் எப்படிச் சேருவது?</span></summary>
+        <p><span class="en">Fill in the short form below, or WhatsApp or call 97322-97322. Our team will get in touch.</span><span class="hi">नीचे का छोटा फ़ॉर्म भरें, या 97322-97322 पर व्हाट्सएप्प या कॉल करें। हमारी टीम आपसे संपर्क करेगी।</span><span class="or">ତଳର ଛୋଟ ଫର୍ମ ପୂରଣ କରନ୍ତୁ, କିମ୍ବା 97322-97322ରେ ହ୍ୱାଟସଆପ୍ ବା କଲ୍ କରନ୍ତୁ। ଆମ ଦଳ ଆପଣଙ୍କ ସହ ଯୋଗାଯୋଗ କରିବେ।</span><span class="ta">கீழே உள்ள சிறிய படிவத்தை நிரப்புங்கள், அல்லது 97322-97322 இல் வாட்ஸ்அப் அல்லது அழைப்பு செய்யுங்கள். எங்கள் குழு உங்களைத் தொடர்பு கொள்ளும்.</span></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11 · REGISTER FOR THE TRIAL
+     Fields follow the sitemap's farmer form, cut to what the
+     team needs for a first call. NOT CONNECTED YET: until the
+     sheet is mapped, a submitted form hands the details to
+     WhatsApp (see s11-register-form.js).
+     ============================================================ -->
+<section class="section register" id="register">
+  <div class="wrap register-grid">
+    <aside class="register-side reveal">
+      <img src="assets/img/farmer-wave.jpg" width="1000" height="1100" loading="lazy" alt="A smiling farmer waves from a field of yellow mustard flowers.">
+      <div class="register-help">
+        <p><span class="en">Prefer to talk?</span><span class="hi">बात करना चाहते हैं?</span><span class="or">କଥା ହେବାକୁ ଚାହାଁନ୍ତି କି?</span><span class="ta">பேச விரும்புகிறீர்களா?</span></p>
+        <a class="num" href="tel:+919732297322">97322-97322</a>
+        <p class="register-help-sub"><span class="en">WhatsApp or call</span><span class="hi">व्हाट्सएप्प या कॉल</span><span class="or">ହ୍ୱାଟସଆପ୍ କିମ୍ବା କଲ୍</span><span class="ta">வாட்ஸ்அப் அல்லது அழைப்பு</span></p>
+      </div>
+    </aside>
+
+    <div class="register-main">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="en">Field trial, Rabi 2026-27</span><span class="hi">फ़ील्ड ट्रायल, रबी 2026-27</span><span class="or">କ୍ଷେତ୍ର ପରୀକ୍ଷଣ, ରବି 2026-27</span><span class="ta">வயல் சோதனை, ராபி 2026-27</span></p>
+        <h2 class="section-title"><span class="en">Register your farm for the NavUrvarak trial</span><span class="hi">नवउर्वरक ट्रायल के लिए अपना खेत रजिस्टर करें</span><span class="or">ନବଉର୍ବରକ ପରୀକ୍ଷଣ ପାଇଁ ଆପଣଙ୍କ ଜମି ପଞ୍ଜୀକରଣ କରନ୍ତୁ</span><span class="ta">நவ்உர்வரக் சோதனைக்கு உங்கள் நிலத்தைப் பதிவு செய்யுங்கள்</span></h2>
+        <p class="section-lead"><span class="en">It takes less than 2 minutes.</span><span class="hi">2 मिनट से भी कम समय लगेगा।</span><span class="or">2 ମିନିଟରୁ କମ୍ ସମୟ ଲାଗିବ।</span><span class="ta">2 நிமிடங்களுக்குள் முடிந்துவிடும்.</span></p>
+      </div>
+
+      <form class="reg-form reveal" id="regForm" novalidate>
+        <div class="form-grid">
+          <label class="field">
+            <span class="field-label"><span class="en">Your name</span><span class="hi">आपका नाम</span><span class="or">ଆପଣଙ୍କ ନାମ</span><span class="ta">உங்கள் பெயர்</span> <i aria-hidden="true">*</i></span>
+            <input type="text" name="name" required autocomplete="name">
+          </label>
+          <label class="field">
+            <span class="field-label"><span class="en">Mobile number</span><span class="hi">मोबाइल नंबर</span><span class="or">ମୋବାଇଲ୍ ନମ୍ବର</span><span class="ta">கைபேசி எண்</span> <i aria-hidden="true">*</i></span>
+            <input type="tel" name="mobile" required inputmode="numeric" autocomplete="tel-national" maxlength="10" pattern="[6-9][0-9]{9}">
+          </label>
+          <label class="field">
+            <span class="field-label"><span class="en">Village</span><span class="hi">गाँव</span><span class="or">ଗାଁ</span><span class="ta">கிராமம்</span></span>
+            <input type="text" name="village">
+          </label>
+          <label class="field">
+            <span class="field-label"><span class="en">District</span><span class="hi">ज़िला</span><span class="or">ଜିଲ୍ଲା</span><span class="ta">மாவட்டம்</span> <i aria-hidden="true">*</i></span>
+            <input type="text" name="district" required>
+          </label>
+          <label class="field">
+            <span class="field-label"><span class="en">State</span><span class="hi">राज्य</span><span class="or">ରାଜ୍ୟ</span><span class="ta">மாநிலம்</span> <i aria-hidden="true">*</i></span>
+            <input type="text" name="state" required>
+          </label>
+          <label class="field">
+            <span class="field-label"><span class="en">Land (acres)</span><span class="hi">ज़मीन (एकड़)</span><span class="or">ଜମି (ଏକର)</span><span class="ta">நிலம் (ஏக்கர்)</span></span>
+            <input type="number" name="acres" inputmode="decimal" min="0" step="0.1">
+          </label>
+          <fieldset class="field wide">
+            <legend class="field-label"><span class="en">Main crops</span><span class="hi">मुख्य फ़सलें</span><span class="or">ମୁଖ୍ୟ ଫସଲ</span><span class="ta">முக்கிய பயிர்கள்</span></legend>
+            <div class="chips"><label class="chip"><input type="checkbox" name="crops" value="Wheat"><span><span class="en">Wheat</span><span class="hi">गेहूँ</span><span class="or">ଗହମ</span><span class="ta">கோதுமை</span></span></label><label class="chip"><input type="checkbox" name="crops" value="Paddy"><span><span class="en">Paddy</span><span class="hi">धान</span><span class="or">ଧାନ</span><span class="ta">நெல்</span></span></label><label class="chip"><input type="checkbox" name="crops" value="Maize"><span><span class="en">Maize</span><span class="hi">मक्का</span><span class="or">ମକା</span><span class="ta">மக்காச்சோளம்</span></span></label><label class="chip"><input type="checkbox" name="crops" value="Sugarcane"><span><span class="en">Sugarcane</span><span class="hi">गन्ना</span><span class="or">ଆଖୁ</span><span class="ta">கரும்பு</span></span></label><label class="chip"><input type="checkbox" name="crops" value="Cotton"><span><span class="en">Cotton</span><span class="hi">कपास</span><span class="or">କପା</span><span class="ta">பருத்தி</span></span></label><label class="chip"><input type="checkbox" name="crops" value="Other"><span><span class="en">Other</span><span class="hi">अन्य</span><span class="or">ଅନ୍ୟ</span><span class="ta">பிற</span></span></label></div>
+          </fieldset>
+          <fieldset class="field wide">
+            <legend class="field-label"><span class="en">Fertilizer you use now</span><span class="hi">अभी कौन-सी खाद डालते हैं</span><span class="or">ବର୍ତ୍ତମାନ କେଉଁ ସାର ଦିଅନ୍ତି</span><span class="ta">இப்போது பயன்படுத்தும் உரம்</span></legend>
+            <div class="chips"><label class="chip"><input type="checkbox" name="fertilizer" value="Urea"><span><span class="en">Urea</span><span class="hi">यूरिया</span><span class="or">ୟୁରିଆ</span><span class="ta">யூரியா</span></span></label><label class="chip"><input type="checkbox" name="fertilizer" value="DAP"><span>DAP</span></label><label class="chip"><input type="checkbox" name="fertilizer" value="Other"><span><span class="en">Other</span><span class="hi">अन्य</span><span class="or">ଅନ୍ୟ</span><span class="ta">பிற</span></span></label></div>
+          </fieldset>
+          <fieldset class="field wide">
+            <legend class="field-label"><span class="en">Can a tractor reach your field?</span><span class="hi">क्या आपके खेत तक ट्रैक्टर पहुँच सकता है?</span><span class="or">ଆପଣଙ୍କ ଜମିକୁ ଟ୍ରାକ୍ଟର ପହଞ୍ଚିପାରିବ କି?</span><span class="ta">உங்கள் வயலுக்கு டிராக்டர் செல்ல முடியுமா?</span></legend>
+            <div class="chips"><label class="chip"><input type="radio" name="tractor" value="Yes"><span><span class="en">Yes</span><span class="hi">हाँ</span><span class="or">ହଁ</span><span class="ta">ஆம்</span></span></label><label class="chip"><input type="radio" name="tractor" value="No"><span><span class="en">No</span><span class="hi">नहीं</span><span class="or">ନାହିଁ</span><span class="ta">இல்லை</span></span></label></div>
+          </fieldset>
+          <fieldset class="field wide">
+            <legend class="field-label"><span class="en">How should we reach you?</span><span class="hi">हम आपसे कैसे संपर्क करें?</span><span class="or">ଆମେ ଆପଣଙ୍କ ସହ କିପରି ଯୋଗାଯୋଗ କରିବୁ?</span><span class="ta">நாங்கள் உங்களை எப்படித் தொடர்பு கொள்ளலாம்?</span></legend>
+            <div class="chips"><label class="chip"><input type="radio" name="contact" value="WhatsApp"><span><span class="en">WhatsApp</span><span class="hi">व्हाट्सएप्प</span><span class="or">ହ୍ୱାଟସଆପ୍</span><span class="ta">வாட்ஸ்அப்</span></span></label><label class="chip"><input type="radio" name="contact" value="Call"><span><span class="en">Phone call</span><span class="hi">फ़ोन कॉल</span><span class="or">ଫୋନ୍ କଲ୍</span><span class="ta">தொலைபேசி அழைப்பு</span></span></label><label class="chip"><input type="radio" name="contact" value="Visit"><span><span class="en">Visit by ACME team</span><span class="hi">ACME टीम की विज़िट</span><span class="or">ACME ଦଳର ଗସ୍ତ</span><span class="ta">ACME குழுவின் வருகை</span></span></label></div>
+          </fieldset>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" name="consent" value="yes" required>
+          <span><span class="en">I agree that ACME can contact me about this trial and related farm products.</span><span class="hi">मैं सहमत हूँ कि ACME इस ट्रायल और संबंधित कृषि उत्पादों के बारे में मुझसे संपर्क कर सकता है।</span><span class="or">ମୁଁ ସହମତ ଯେ ACME ଏହି ପରୀକ୍ଷଣ ଓ ସମ୍ବନ୍ଧିତ କୃଷି ଉତ୍ପାଦ ବିଷୟରେ ମୋ ସହ ଯୋଗାଯୋଗ କରିପାରିବ।</span><span class="ta">இந்தச் சோதனை மற்றும் தொடர்புடைய வேளாண் பொருட்கள் குறித்து ACME என்னைத் தொடர்பு கொள்ள ஒப்புக்கொள்கிறேன்.</span></span>
+        </label>
+
+        <p class="form-error" id="formError" role="alert" hidden>
+          <span data-err="fields"><span class="en">Please fill in the marked fields.</span><span class="hi">कृपया * वाली जानकारी भरें।</span><span class="or">ଦୟାକରି * ଥିବା ବିବରଣୀ ପୂରଣ କରନ୍ତୁ।</span><span class="ta">* குறியிட்ட விவரங்களை நிரப்புங்கள்.</span></span>
+          <span data-err="mobile"><span class="en">Enter a 10-digit mobile number.</span><span class="hi">10 अंकों का मोबाइल नंबर लिखें।</span><span class="or">10 ଅଙ୍କର ମୋବାଇଲ୍ ନମ୍ବର ଲେଖନ୍ତୁ।</span><span class="ta">10 இலக்க கைபேசி எண்ணை உள்ளிடுங்கள்.</span></span>
+          <span data-err="consent"><span class="en">Please tick the box to agree.</span><span class="hi">कृपया सहमति के लिए बॉक्स पर टिक करें।</span><span class="or">ସହମତି ପାଇଁ ଦୟାକରି ବାକ୍ସରେ ଟିକ୍ ଦିଅନ୍ତୁ।</span><span class="ta">ஒப்புதலுக்குப் பெட்டியில் டிக் செய்யுங்கள்.</span></span>
+        </p>
+
+        <button class="btn btn-primary btn-submit" type="submit"><span class="en">Register</span><span class="hi">रजिस्टर करें</span><span class="or">ପଞ୍ଜୀକରଣ କରନ୍ତୁ</span><span class="ta">பதிவு செய்யுங்கள்</span></button>
+      </form>
+
+      <div class="reg-done" id="regDone" hidden tabindex="-1">
+        <div class="done-tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3><span class="en">Thank you!</span><span class="hi">धन्यवाद!</span><span class="or">ଧନ୍ୟବାଦ!</span><span class="ta">நன்றி!</span></h3>
+        <p><span class="en">Now tap below to send these details to our team on WhatsApp.</span><span class="hi">अब नीचे दबाकर यह जानकारी व्हाट्सएप्प पर हमारी टीम को भेजें।</span><span class="or">ଏବେ ତଳେ ଦବାଇ ଏହି ବିବରଣୀ ହ୍ୱାଟସଆପରେ ଆମ ଦଳକୁ ପଠାନ୍ତୁ।</span><span class="ta">இப்போது கீழே அழுத்தி இந்த விவரங்களை வாட்ஸ்அப்பில் எங்கள் குழுவுக்கு அனுப்புங்கள்.</span></p>
+        <a class="btn btn-wa" id="regWa" href="https://wa.me/919732297322" target="_blank" rel="noopener"><span class="en">Send on WhatsApp</span><span class="hi">व्हाट्सएप्प पर भेजें</span><span class="or">ହ୍ୱାଟସଆପରେ ପଠାନ୍ତୁ</span><span class="ta">வாட்ஸ்அப்பில் அனுப்புங்கள்</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     12 · HELPLINE
+     ============================================================ -->
+<section class="helpline" aria-labelledby="helplineTitle">
+  <div class="wrap helpline-inner reveal">
+    <div>
+      <p class="helpline-kicker"><span class="en">Farmer helpline</span><span class="hi">किसान सहायता</span><span class="or">କୃଷକ ସହାୟତା</span><span class="ta">விவசாயி உதவி எண்</span></p>
+      <h2 id="helplineTitle"><span class="en">Have a question? Talk to us.</span><span class="hi">कोई सवाल? हमसे बात करें।</span><span class="or">କିଛି ପ୍ରଶ୍ନ ଅଛି? ଆମ ସହ କଥା ହୁଅନ୍ତୁ।</span><span class="ta">ஏதேனும் கேள்வியா? எங்களுடன் பேசுங்கள்.</span></h2>
+      <a class="helpline-num num" href="tel:+919732297322">97322-97322</a>
+      <p class="helpline-sub"><span class="en">WhatsApp and call</span><span class="hi">व्हाट्सएप्प और कॉल</span><span class="or">ହ୍ୱାଟସଆପ୍ ଓ କଲ୍</span><span class="ta">வாட்ஸ்அப் மற்றும் அழைப்பு</span></p>
+    </div>
+    <div class="helpline-ctas">
+      <a class="btn btn-wa" data-wa href="https://wa.me/919732297322" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.7.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg><span class="en">WhatsApp</span><span class="hi">व्हाट्सएप्प</span><span class="or">ହ୍ୱାଟସଆପ୍</span><span class="ta">வாட்ஸ்அப்</span></a>
+      <a class="btn btn-light" href="tel:+919732297322"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg><span class="en">Call now</span><span class="hi">अभी कॉल करें</span><span class="or">ଏବେ କଲ୍ କରନ୍ତୁ</span><span class="ta">இப்போதே அழையுங்கள்</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     13 · FOOTER
+     Content as on the official ACME Group footer at acme.in
+     (read on 10 October 2026), kept in English as published.
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="footer-brandbar">
+    <div class="wrap footer-brandbar-inner">
+      <img class="footer-nu" src="assets/logos/navurvarak-logo.png" alt="ACME NavUrvarak" width="1708" height="587" loading="lazy">
+      <p><span class="en">ACME Group in collaboration with ICAR</span><span class="hi">ACME ग्रुप, ICAR के सहयोग से</span><span class="or">ACME ଗ୍ରୁପ୍, ICAR ସହଯୋଗରେ</span><span class="ta">ACME குழுமம், ICAR உடன் இணைந்து</span></p>
+    </div>
+  </div>
+
+  <div class="wrap footer-grid">
+    <div class="footer-about">
+      <a href="https://acme.in/" target="_blank" rel="noopener" aria-label="ACME Group"><img src="assets/logos/acme-group-logo-reverse.svg" alt="ACME Group, Leading Through Innovation" width="137" height="87" loading="lazy"></a>
+      <p>ACME Group specializes in bringing disruptive green technology solutions.</p>
+      <p class="footer-h">Follow us</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/acme.in/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 11 19" aria-hidden="true"><path fill="currentColor" d="M2.3 10.6H0V7.2h2.3V5.7C2.3 1.9 4.1 0 7.8.1c.4 0 .8 0 1.3.1l1.2.2v3.1H9c-.9 0-1.6.2-2 .6-.4.4-.6 1-.6 1.9v1.2h3.7l-.6 3.4H6.4v7.5H2.3z"/></svg></a>
+        <a href="https://www.linkedin.com/company/acme_group/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 18 18" aria-hidden="true"><path fill="currentColor" d="M3.9 17.5H.3V5.8h3.6zM2.1 4.2C.9 4.2 0 3.2 0 2.1 0 .9.9 0 2.1 0s2.1.9 2.1 2.1c0 1.1-.9 2.1-2.1 2.1zm15.4 13.3h-3.6v-5.7c0-1.4 0-3.1-1.9-3.1s-2.2 1.4-2.2 3v5.8H6.2V5.8h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.7 0 4.4 2.4 4.4 5.5z"/></svg></a>
+        <a href="https://x.com/ACMEGroup_India/" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 17 15" aria-hidden="true"><path fill="currentColor" d="M12.7 0h2.5L9.8 6.2l6.4 8.4h-5L7.3 9.5l-4.5 5.1H.3l5.8-6.6L0 0h5.1l3.5 4.7zm-.9 13.1h1.4L4.4 1.4H2.9z"/></svg></a>
+        <a href="https://www.instagram.com/acme_cleantech" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 18 18" aria-hidden="true"><path fill="currentColor" d="M9 0C6.6 0 6.3 0 5.3.1 4.3.1 3.7.2 3.1.5c-.6.2-1.1.6-1.6 1-.5.5-.8 1-1 1.6C.2 3.7.1 4.3.1 5.3 0 6.3 0 6.6 0 9s0 2.8.1 3.7c0 1 .2 1.6.4 2.2.2.6.6 1.1 1 1.6.5.5 1 .8 1.6 1 .6.2 1.2.4 2.2.4 1 .1 1.3.1 3.7.1s2.8 0 3.7-.1c1 0 1.6-.2 2.2-.4a4.6 4.6 0 0 0 2.6-2.6c.2-.6.4-1.2.4-2.2.1-1 .1-1.3.1-3.7s0-2.8-.1-3.7c0-1-.2-1.6-.4-2.2-.2-.6-.6-1.1-1-1.6-.5-.5-1-.8-1.6-1C14.3.2 13.7.1 12.7.1 11.8 0 11.4 0 9 0zm0 1.6c2.4 0 2.7 0 3.6.1.9 0 1.4.2 1.7.3.4.2.8.4 1 .7.3.3.5.6.7 1 .1.3.3.8.3 1.7.1.9.1 1.2.1 3.6s0 2.7-.1 3.6c0 .9-.2 1.4-.3 1.7-.3.8-.9 1.4-1.7 1.7-.3.1-.8.3-1.7.3-.9.1-1.2.1-3.6.1s-2.7 0-3.6-.1c-.9 0-1.4-.2-1.7-.3-.4-.1-.7-.4-1-.7-.3-.3-.5-.6-.7-1-.1-.3-.3-.8-.3-1.7-.1-.9-.1-1.2-.1-3.6s0-2.7.1-3.6c0-.9.2-1.4.3-1.7.1-.4.4-.7.7-1 .3-.3.6-.5 1-.7.3-.1.8-.3 1.7-.3.9-.1 1.2-.1 3.6-.1zM9 4.4a4.6 4.6 0 1 0 0 9.2 4.6 4.6 0 0 0 0-9.2zM9 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm5.9-7.8a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg></a>
+      </div>
+    </div>
+    <nav class="footer-col" aria-label="About Us">
+      <p class="footer-h">About Us</p>
+      <a href="https://acme.in/about_us" target="_blank" rel="noopener">Overview</a>
+      <a href="https://acme.in/our_founder" target="_blank" rel="noopener">Our Founder</a>
+      <p class="footer-h footer-h-gap">Compliances</p>
+      <a href="https://acme.in/annual_returns" target="_blank" rel="noopener">Annual Returns</a>
+    </nav>
+    <nav class="footer-col" aria-label="Businesses">
+      <p class="footer-h">Businesses</p>
+      <a href="https://acme.in/acme_solar_holdings" target="_blank" rel="noopener">ACME Solar Holdings</a>
+      <a href="https://acme.in/renewable_equipment_manufacturing" target="_blank" rel="noopener">Renewable Equipment Manufacturing</a>
+      <a href="https://acme.in/green_molecule" target="_blank" rel="noopener">Green Molecules</a>
+      <a href="https://acme.in/poshan" target="_blank" rel="noopener">ACME Poshan</a>
+      <a href="https://acme.in/green_hbi_dri" target="_blank" rel="noopener">Green HBI/DRI</a>
+    </nav>
+    <nav class="footer-col" aria-label="Quick Links">
+      <p class="footer-h">Quick Links</p>
+      <a href="https://acme.in/sustainability" target="_blank" rel="noopener">Sustainability</a>
+      <a href="https://acme.in/launchpad" target="_blank" rel="noopener">Launchpad</a>
+      <a href="https://acme.in/career" target="_blank" rel="noopener">Careers</a>
+      <a href="https://acme.in/media" target="_blank" rel="noopener">Media</a>
+      <a href="https://acme.in/contact_us" target="_blank" rel="noopener">Contact Us</a>
+    </nav>
+    <div class="footer-col">
+      <p class="footer-h">Corporate Office</p>
+      <address>4th, 6th to 8th Floor, Block A1,<br>DLF World Tech Park, DLF IT SEZ Silokhera,<br>Sector 30, Gurugram, Haryana 122001, India</address>
+      <p class="footer-h footer-h-gap"><span class="en">Farmer helpline</span><span class="hi">किसान सहायता</span><span class="or">କୃଷକ ସହାୟତା</span><span class="ta">விவசாயி உதவி எண்</span></p>
+      <a class="footer-phone num" href="tel:+919732297322">97322-97322</a>
+    </div>
+  </div>
+
+  <div class="footer-base">
+    <div class="wrap footer-base-inner">
+      <p class="footer-disclaimer"><span class="en">Trial results are from ongoing ICAR studies and can vary by crop, soil and practice. NavUrvarak is applied only by trained teams. Photographs are illustrative.</span><span class="hi">ट्रायल के नतीजे जारी ICAR अध्ययनों से हैं और फ़सल, मिट्टी व तरीके के अनुसार बदल सकते हैं। नवउर्वरक केवल प्रशिक्षित टीम द्वारा डाली जाती है। तस्वीरें केवल उदाहरण के लिए हैं।</span><span class="or">ପରୀକ୍ଷଣ ଫଳାଫଳ ଚାଲିଥିବା ICAR ଅଧ୍ୟୟନରୁ ଆସିଛି ଏବଂ ଫସଲ, ମାଟି ଓ ପଦ୍ଧତି ଅନୁସାରେ ବଦଳିପାରେ। ନବଉର୍ବରକ କେବଳ ତାଲିମପ୍ରାପ୍ତ ଦଳ ଦ୍ୱାରା ଦିଆଯାଏ। ଫଟୋଗୁଡ଼ିକ କେବଳ ଉଦାହରଣ ପାଇଁ।</span><span class="ta">சோதனை முடிவுகள் நடைபெற்று வரும் ICAR ஆய்வுகளிலிருந்து பெறப்பட்டவை; பயிர், மண், முறைக்கு ஏற்ப மாறலாம். நவ்உர்வரக் பயிற்சி பெற்ற குழுவால் மட்டுமே இடப்படுகிறது. புகைப்படங்கள் விளக்கத்துக்காக மட்டுமே.</span></p>
+      <p>© 2026 ACME Group. All rights reserved.</p>
+      <p class="footer-credit">Photographs: Pexels</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     14 · STICKY ACTION BAR (phones)
+     ============================================================ -->
+<nav class="sticky-bar" aria-label="Quick actions">
+  <a href="tel:+919732297322"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg><span class="en">Call</span><span class="hi">कॉल</span><span class="or">କଲ୍</span><span class="ta">அழைப்பு</span></a>
+  <a class="sb-wa" data-wa href="https://wa.me/919732297322" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.7.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg><span class="en">WhatsApp</span><span class="hi">व्हाट्सएप्प</span><span class="or">ହ୍ୱାଟସଆପ୍</span><span class="ta">வாட்ஸ்அப்</span></a>
+  <a class="sb-reg" href="#register"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M9 4h6M8 4H6a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-2M9 12l2 2 4-4"/></svg><span class="en">Register</span><span class="hi">रजिस्टर</span><span class="or">ପଞ୍ଜୀକରଣ</span><span class="ta">பதிவு</span></a>
+</nav>
+<script>
+(function(){
+  "use strict";
+  var root = document.documentElement;
+  root.classList.add("js");
+
+  /* ---- Language ----------------------------------------------
+     Four languages. A first visit opens the picker; after that
+     the choice is remembered on the phone. WhatsApp links get a
+     greeting in the chosen language.                           */
+  var LANGS = { en:"en", hi:"hi", or:"or", ta:"ta" };
+  var picker = document.getElementById("langPicker");
+  var langBtn = document.getElementById("langBtn");
+  var WA_TEXT = {
+    en:"Namaste, I want to know about NavUrvarak.",
+    hi:"नमस्ते, मुझे नवउर्वरक के बारे में जानना है।",
+    or:"ନମସ୍କାର, ମୁଁ ନବଉର୍ବରକ ବିଷୟରେ ଜାଣିବାକୁ ଚାହେଁ।",
+    ta:"வணக்கம், நவ்உர்வரக் பற்றி அறிய விரும்புகிறேன்."
+  };
+
+  function setLang(lang){
+    if (!LANGS[lang]) lang = "en";
+    root.setAttribute("data-lang", lang);
+    root.setAttribute("lang", lang);
+    document.querySelectorAll("[data-set-lang]").forEach(function(b){
+      b.setAttribute("aria-pressed", String(b.dataset.setLang === lang));
+    });
+    document.querySelectorAll("a[data-wa]").forEach(function(a){
+      a.href = "https://wa.me/919732297322?text=" + encodeURIComponent(WA_TEXT[lang]);
+    });
+    try { localStorage.setItem("navurvarak-lang", lang); } catch(e){}
+  }
+  window.nuLang = function(){ return root.getAttribute("data-lang") || "en"; };
+
+  function openPicker(){ picker.hidden = false; var b = picker.querySelector("button"); if (b) b.focus(); }
+  function closePicker(){ picker.hidden = true; }
+
+  document.querySelectorAll("[data-set-lang]").forEach(function(b){
+    b.addEventListener("click", function(){ setLang(b.dataset.setLang); closePicker(); if (langBtn) langBtn.focus(); });
+  });
+  if (langBtn) langBtn.addEventListener("click", openPicker);
+  picker.addEventListener("click", function(e){ if (e.target === picker && saved) closePicker(); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !picker.hidden && saved) closePicker(); });
+
+  // ?lang=hi in a shared link wins, then the saved choice.
+  var saved = null;
+  try { saved = localStorage.getItem("navurvarak-lang"); } catch(e){}
+  var fromUrl = (location.search.match(/[?&]lang=(en|hi|or|ta)\b/) || [])[1];
+  if (fromUrl){ setLang(fromUrl); saved = fromUrl; }
+  else if (saved && LANGS[saved]) setLang(saved);
+  else { setLang("en"); openPicker(); }
+
+  /* ---- Mobile menu ------------------------------------------ */
+  var menuBtn = document.getElementById("menuBtn");
+  var nav = document.getElementById("nav");
+  function closeMenu(){ document.body.classList.remove("menu-open"); menuBtn.setAttribute("aria-expanded", "false"); }
+
+  menuBtn.addEventListener("click", function(){
+    var open = document.body.classList.toggle("menu-open");
+    menuBtn.setAttribute("aria-expanded", String(open));
+  });
+  nav.addEventListener("click", function(e){ if (e.target.closest("a")) closeMenu(); });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && document.body.classList.contains("menu-open")){ closeMenu(); menuBtn.focus(); }
+  });
+
+  var header = document.querySelector(".site-header");
+  function onScroll(){ header.classList.toggle("scrolled", window.scrollY > 8); }
+  window.addEventListener("scroll", onScroll, { passive:true }); onScroll();
+
+  /* ---- Highlight the menu item for the section in view ------ */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav a[href^="#"]:not(.btn)'));
+  if (window.IntersectionObserver && navLinks.length){
+    var byId = {};
+    navLinks.forEach(function(a){ byId[a.getAttribute("href").slice(1)] = a; });
+    var navIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting && byId[en.target.id]){
+          navLinks.forEach(function(a){ a.classList.remove("active"); });
+          byId[en.target.id].classList.add("active");
+        }
+      });
+    }, { rootMargin:"-45% 0px -50% 0px" });
+    Object.keys(byId).forEach(function(id){ var s = document.getElementById(id); if (s) navIo.observe(s); });
+  }
+  /* ---- Reveal sections on approach --------------------------
+     If IntersectionObserver is missing, everything is simply
+     shown — content is never left hidden.                      */
+  var reveals = document.querySelectorAll(".reveal");
+
+  if (window.IntersectionObserver){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.12 });
+
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add("in"); });
+  }
+
+
+  /* ---- Grow the yield bars when the chart comes into view --- */
+  var bars = document.querySelector(".bars");
+  if (bars){
+    if (window.IntersectionObserver){
+      var barIo = new IntersectionObserver(function(en){
+        if (en[0].isIntersecting){ bars.classList.add("in"); barIo.disconnect(); }
+      }, { threshold:.4 });
+      barIo.observe(bars);
+    } else bars.classList.add("in");
+  }
+
+  /* ---- Trial registration form -------------------------------
+     NOT CONNECTED YET. The sheet will be mapped once the visual
+     work is signed off. Until then a valid form is turned into
+     a WhatsApp message to the helpline, so nothing is lost.
+     To connect: post `data` to the sheet endpoint in submit().  */
+  var form = document.getElementById("regForm");
+  var done = document.getElementById("regDone");
+  var err = document.getElementById("formError");
+  var regWa = document.getElementById("regWa");
+
+  if (form){
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      form.querySelectorAll(".invalid").forEach(function(el){ el.classList.remove("invalid"); });
+      err.className = "form-error"; err.hidden = true;
+
+      var f = form.elements, problems = [];
+      ["name", "district", "state"].forEach(function(n){
+        if (!f[n].value.trim()){ f[n].closest(".field").classList.add("invalid"); problems.push("fields"); }
+      });
+      var mobile = f.mobile.value.replace(/\D/g, "").replace(/^(91|0)(?=\d{10}$)/, "");
+      if (!/^[6-9]\d{9}$/.test(mobile)){ f.mobile.closest(".field").classList.add("invalid"); problems.push("mobile"); }
+      if (!f.consent.checked){ form.querySelector(".consent").classList.add("invalid"); problems.push("consent"); }
+
+      if (problems.length){
+        problems.forEach(function(p){ err.classList.add("show-" + p); });
+        err.hidden = false;
+        var first = form.querySelector(".invalid input");
+        if (first) first.focus();
+        return;
+      }
+
+      function picked(name){
+        return Array.prototype.filter.call(form.querySelectorAll('[name="' + name + '"]'), function(i){ return i.checked; })
+          .map(function(i){ return i.value; }).join(", ");
+      }
+      var data = {
+        name:f.name.value.trim(), mobile:mobile, village:f.village.value.trim(),
+        district:f.district.value.trim(), state:f.state.value.trim(), acres:f.acres.value,
+        crops:picked("crops"), fertilizer:picked("fertilizer"), tractor:picked("tractor"),
+        contact:picked("contact"), language:window.nuLang()
+      };
+      var lines = ["NavUrvarak trial registration"];
+      Object.keys(data).forEach(function(k){ if (data[k]) lines.push(k + ": " + data[k]); });
+      regWa.href = "https://wa.me/919732297322?text=" + encodeURIComponent(lines.join("\n"));
+
+      form.hidden = true; done.hidden = false; done.focus();
+    });
+  }
+
+})();
+</script>
+</body>
+</html>

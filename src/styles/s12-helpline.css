@@ -1,0 +1,18 @@
+/* ============================================================
+   12 · HELPLINE
+   ============================================================ */
+.helpline{ padding:0 0 clamp(64px, 8vw, 96px); }
+.helpline-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
+  padding:clamp(28px, 5vw, 52px); border-radius:32px; color:#fff;
+  background:
+    radial-gradient(600px 300px at 100% 0%, rgba(40,122,195,.45), transparent 70%),
+    linear-gradient(120deg, var(--green-deep), var(--green));
+}
+.helpline-kicker{ font-weight:600; color:#CFEBD5; }
+.helpline h2{ color:#fff; font-size:clamp(1.7rem, 3.4vw, 2.4rem); margin-top:6px; }
+.helpline-num{ display:block; margin-top:10px; font-size:clamp(2.6rem, 6vw, 4rem); font-weight:800; color:#fff; text-decoration:none; line-height:1.05; }
+.helpline-sub{ color:#CFEBD5; }
+.helpline-ctas{ display:flex; gap:12px; flex-wrap:wrap; }
+.btn-light{ background:#fff; color:var(--green-deep); }
+.btn-light:hover{ background:var(--green-tint); }

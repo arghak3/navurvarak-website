@@ -1,0 +1,18 @@
+/* ============================================================
+   10 · QUESTIONS
+   ============================================================ */
+.faqs-wrap{ display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(24px, 5vw, 64px); align-items:start; }
+.faq-list{ display:grid; gap:12px; }
+.faq{ background:#fff; border:1px solid var(--line); border-radius:18px; }
+.faq summary{
+  list-style:none; cursor:pointer; padding:20px 56px 20px 22px; position:relative;
+  font-family:var(--font-head); font-weight:700; font-size:1.18rem; color:var(--green-ink); line-height:1.35;
+}
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{
+  content:"+"; position:absolute; right:18px; top:50%; transform:translateY(-50%);
+  width:30px; height:30px; border-radius:50%; display:grid; place-items:center;
+  background:var(--green-tint); color:var(--green-deep); font-size:1.3rem; font-family:"Noto Sans"; line-height:1;
+}
+.faq[open] summary::after{ content:"–"; background:var(--green); color:#fff; }
+.faq p{ padding:0 22px 22px; color:#3B4D40; }

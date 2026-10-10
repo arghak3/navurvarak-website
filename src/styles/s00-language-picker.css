@@ -1,0 +1,34 @@
+/* ============================================================
+   00 · LANGUAGE PICKER
+   ============================================================ */
+.lang-picker{
+  position:fixed; inset:0; z-index:100; display:grid; place-items:center; padding:20px;
+  background:rgba(18,58,28,.55); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+}
+.lang-picker[hidden]{ display:none; }
+.lang-card{
+  width:min(520px, 100%); background:#fff; border-radius:28px; padding:32px 28px 28px;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.45); text-align:center;
+  animation:pickIn .35s ease both;
+}
+@keyframes pickIn{ from{ opacity:0; transform:translateY(12px) scale(.98); } to{ opacity:1; transform:none; } }
+.lang-logo{ width:200px; height:auto; margin:0 auto 18px; }
+.lang-title{ display:grid; gap:6px; line-height:1.4; font-size:1.05rem; color:var(--muted); font-weight:600; margin-bottom:22px; }
+.lang-title span:first-child{ font-size:1.35rem; color:var(--green-ink); }
+.lang-title [lang="hi"]{ font-family:"Noto Sans Devanagari"; }
+.lang-title [lang="or"]{ font-family:"Noto Sans Oriya"; }
+.lang-title [lang="ta"]{ font-family:"Noto Sans Tamil"; }
+.lang-options{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.lang-options button{
+  display:grid; gap:2px; padding:18px 12px; border-radius:18px; cursor:pointer;
+  background:var(--green-mist); border:2px solid var(--line); transition:border-color .2s, background .2s, transform .15s;
+}
+.lang-options button:hover{ border-color:var(--green); background:var(--green-tint); }
+.lang-options button:active{ transform:scale(.98); }
+.lang-options b{ font-size:1.6rem; line-height:1.3; color:var(--green-ink); font-weight:700; }
+.lang-options b[lang="hi"]{ font-family:"Baloo 2"; }
+.lang-options b[lang="or"]{ font-family:"Baloo Bhaina 2"; }
+.lang-options b[lang="ta"]{ font-family:"Baloo Thambi 2"; }
+.lang-options button:last-child b{ font-family:"Baloo 2"; }
+.lang-options small{ font-family:"Noto Sans"; font-size:.85rem; color:var(--muted); }
+.lang-options button[aria-pressed="true"]{ border-color:var(--green); background:var(--green-tint); }

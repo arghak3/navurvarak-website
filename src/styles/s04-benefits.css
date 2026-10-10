@@ -1,0 +1,11 @@
+/* ============================================================
+   04 · BENEFITS
+   ============================================================ */
+.benefit-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
+.benefit{
+  background:#fff; border-radius:var(--radius); padding:28px; border:1px solid var(--line);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.benefit:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
+.benefit h3{ margin-top:18px; font-size:1.35rem; }
+.benefit p{ margin-top:8px; color:var(--muted); }
