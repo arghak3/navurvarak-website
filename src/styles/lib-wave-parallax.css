@@ -24,3 +24,9 @@
   mix-blend-mode:normal; opacity:.19;
 }
 @media (max-width:640px){ .crops .wave-bg{ background-size:cover; background-position:center; opacity:.19; } }
+/* Benefits: the shiny line-wave, 81% transparent, same parallax */
+.benefits .wave-bg{
+  background-image:url("assets/img/wave-shiny.webp"); background-size:100% auto;
+  opacity:.19;
+}
+@media (max-width:640px){ .benefits .wave-bg{ background-size:auto 60%; opacity:.19; } }
