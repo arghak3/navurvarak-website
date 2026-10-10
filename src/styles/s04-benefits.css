@@ -17,7 +17,7 @@
 .benefits::before{
   content:""; position:absolute; inset:auto 0 0 0; height:min(36vw, 560px); z-index:-1; pointer-events:none;
   background:url("assets/img/wave-benefits.webp") center bottom / 100% 100% no-repeat;
-  mix-blend-mode:multiply; opacity:.5;
+  mix-blend-mode:multiply; opacity:.19;   /* 81% transparent */
 }
 @media (max-width:640px){
   .benefits{ padding-bottom:150px; }

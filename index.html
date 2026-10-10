@@ -346,7 +346,7 @@ html[data-lang="ta"] .hero-chip-once{ max-width:270px; }
 .benefits::before{
   content:""; position:absolute; inset:auto 0 0 0; height:min(36vw, 560px); z-index:-1; pointer-events:none;
   background:url("assets/img/wave-benefits.webp") center bottom / 100% 100% no-repeat;
-  mix-blend-mode:multiply; opacity:.5;
+  mix-blend-mode:multiply; opacity:.19;   /* 81% transparent */
 }
 @media (max-width:640px){
   .benefits{ padding-bottom:150px; }
@@ -368,6 +368,14 @@ html[data-lang="ta"] .hero-chip-once{ max-width:270px; }
 .cmp .big{ font-size:1.7rem; font-weight:800; }
 .cmp-note{ text-align:center; margin-top:14px; font-size:.9rem; color:var(--muted); }
 .cmp-row > span{ min-width:0; overflow-wrap:anywhere; hyphens:auto; }
+
+/* Paper-wave texture behind the comparison, 81% transparent */
+.compare{ position:relative; isolation:isolate; overflow:hidden; }
+.compare::before{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:url("assets/img/paper-compare.webp") center / cover no-repeat;
+  opacity:.19;
+}
 /* ============================================================
    06 · HOW IT'S APPLIED
    ============================================================ */

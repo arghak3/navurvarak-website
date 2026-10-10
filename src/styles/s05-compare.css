@@ -14,3 +14,11 @@
 .cmp .big{ font-size:1.7rem; font-weight:800; }
 .cmp-note{ text-align:center; margin-top:14px; font-size:.9rem; color:var(--muted); }
 .cmp-row > span{ min-width:0; overflow-wrap:anywhere; hyphens:auto; }
+
+/* Paper-wave texture behind the comparison, 81% transparent */
+.compare{ position:relative; isolation:isolate; overflow:hidden; }
+.compare::before{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:url("assets/img/paper-compare.webp") center / cover no-repeat;
+  opacity:.19;
+}
