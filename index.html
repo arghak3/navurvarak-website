@@ -338,6 +338,20 @@ html[data-lang="ta"] .hero-chip-once{ max-width:270px; }
 .benefit:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
 .benefit h3{ margin-top:18px; font-size:1.35rem; }
 .benefit p{ margin-top:8px; color:var(--muted); }
+
+/* Green wave along the bottom of the section. Multiply drops the
+   image's white into the section tint; extra bottom padding lets
+   the wave show below the cards. */
+.benefits{ position:relative; isolation:isolate; overflow:hidden; padding-bottom:clamp(170px, 20vw, 300px); }
+.benefits::before{
+  content:""; position:absolute; inset:auto 0 0 0; height:min(36vw, 560px); z-index:-1; pointer-events:none;
+  background:url("assets/img/wave-benefits.webp") center bottom / 100% 100% no-repeat;
+  mix-blend-mode:multiply;
+}
+@media (max-width:640px){
+  .benefits{ padding-bottom:150px; }
+  .benefits::before{ height:220px; background-size:180% 100%; background-position:20% bottom; }
+}
 /* ============================================================
    05 · NAVURVARAK OR UREA
    ============================================================ */
